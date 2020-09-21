@@ -1,0 +1,14 @@
+﻿---
+layout: post
+title: On whether a mechanistic process can be beautiful  
+---
+
+Richard Feynman tells this story about how his artist friend doubted that Feynman could view a flower as beautiful since Feynman would be too focused on the evolution and physiology defining it, dulling it, to which Feynman responds that each piece of science defining the flower enhances its beauty...
+
+On Rosh Hashanah my girlfriend’s father and I were discussing the perseverance of the Jewish culture through such a tough history, and how their strength is such a beautiful trait. It objectively is a beautiful and desirable trait. But I can’t help but look at the trait as the mechanistic result of cultural evolution: consider the space of cultures and an average multi-dimensional personality describing each; when cultures interact and clash, there is undoubtedly cultural evolution filtering for more persevering and dominant cultures. Assuming that there are distinct cultures and there exists variation on the space of average personality traits, such cultures will persist and Jewish culture’s strength is the result of it.
+
+Altruism is undoubtedly a beautiful thing. It’s perhaps one of the most beautiful things. But without a doubt it again is the result of cultural evolution: altruistic societies can sustain large-scale cooperation, which allows them to grow larger and consume more resources and become more locally powerful, further propagating the altruism trait. 
+
+I often perceive and categorize my own and my friends’ subtle conversation patterns into intentions of social alignment and expanding our tribe. Companionship is undoubtedly beautiful – it feels good. But I can’t help but fucking choose the perspective that it’s not beautiful anymore because it makes me feel like a chemical machine optimizing my actions for some half evolved and half culturally-inferred objective function. Even worse, whenever I do feel something beautiful, I recognize that my perception of that entity as beautiful can be individually explained by some cultural or genetic evolution.
+
+I take this existential perspective usually when I’m lonely and feel removed from society. So my solution has been to participate more in society, with two new explicit rules: the first is that I start everyday by reading two articles from the New York Times (to be better informed with what’s going on in society), and that I have to perform at least one social activity a day, either calling or going to see a friend (to better experience a wider range of human emotions instead of just speculating on them). A more subtle rule I’ve recently implemented is that I have to make myself so exhausted with participating in the human condition – doing chores, socializing, cooking new recipes – that I’m too tired and busy participating in it to study society.
