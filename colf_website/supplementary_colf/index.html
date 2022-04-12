@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Compositional Object Light Fields</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="web/offcanvas.css" rel="stylesheet">
+    <!--    <link rel="icon" href="img/favicon.gif" type="image/gif">-->
+</head>
+
+<body>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container"></div>
+    <h2>Compositional Object Light Fields</h2>
+    <!--<h3></h3>-->
+    <hr>
+    <div class="btn-group" role="group" aria-label="Top menu">
+        <a class="btn btn-primary" href="colf_main_paper.pdf">Paper</a>
+        <a class="btn btn-primary" href="colf_supplement.pdf">Supplement</a>
+    </div>
+    <p>
+    <br>
+    Project code can be found in the local directory named "code".
+    </p>
+</div>
+
+
+<div class="container">
+    <div class="section">
+        <h2>Abstract</h2>
+        <hr>
+        <p>
+        <i>
+Neural scene representations, both continuous and discrete, have recently emerged as a powerful new paradigm for 3D scene understanding. Recent efforts have tackled unsupervised discovery of object-centric neural scene representations. However, the high cost of ray-marching, exacerbated by the fact that each object representation has to be ray-marched separately, leads to insufficiently sampled radiance fields and thus, noisy renderings, poor framerates, and high memory and time complexity during training and rendering. Here, we propose to represent objects in an object-centric, compositional scene representation as light fields. We propose a novel light field compositor module that enables reconstructing the global light field from a set of object-centric light fields. Dubbed Compositional Object Light Fields (COLF), our method enables unsupervised learning of object-centric neural scene representations, state-of-the-art reconstruction and novel view synthesis performance on standard datasets, and rendering and training speeds at orders of magnitude faster than existing 3D approaches.
+        </i>
+
+        <br>
+        <br>
+        <b> TL;DR </b> We combine slot attention and light field networks to 
+            yield a 3D-aware, object-centric model without prohibitive memory
+            constraints.
+        </p>
+        <img src="web/img/overview_iter3-7.png"
+                     style="width:100%; margin-right:-20px; margin-top:20px;">
+    </div>
+
+    <div class="section">
+        <h2>Results</h2>
+        <hr>
+    </div>
+
+    <div class="section">
+        <h3>Scene Decomposition</h3>
+        <p>
+        From a single view of a scene, our model infers a 3D description for each object
+        and reconstructs the scene from a novel pose. We visualize novel views
+        of each scene and its per-object contributions.
+        </p>
+        <video class="video" autoplay="true" loop="true" autoplay muted>
+          <source src="web/mov/rotcomb.mp4">
+        </video>
+    </div>
+    <div class="section">
+        <h3>Scene Editing: Cross-Scene Composition </h3>
+        <p>
+        Below, we demonstrate the advantage of using a light-field decoder in a
+        cross-scene composition application, where we combine object latents
+        from ten different scenes into a single scene with twenty objects.
+        Prior object-centric, 3D-aware models are unable to represent scenes with
+        such depth range and number of objects due to prohibitive memory
+        constraints. The scene reconstruction and its per-object contributions
+        are displayed below.
+        </p>
+
+
+        <video class="video" autoplay="true" loop="true" autoplay muted>
+          <source src="web/mov/car.mp4">
+        </video>
+    </div>
+
+    <div class="section">
+        <h3>Scene Editing: Object Manipulation</h3>
+        <p>
+        We demonstrate a scene editing application of editing the scene on a
+        per-object scale. For each scene, its objects are deleted sequentially
+        (left), an object is centered (middle), and an object is orbited about
+        the centered object (right).
+        </p>
+
+
+        <video class="video" autoplay="true" loop="true" autoplay muted>
+          <source src="web/mov/manipcomb.mp4">
+        </video>
+    </div>
+    <div class="section">
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+
+</body>
+</html>
