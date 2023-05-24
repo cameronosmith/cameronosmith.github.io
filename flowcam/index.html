@@ -466,8 +466,8 @@ FlowCam: Training Generalizable 3D Radiance Fields without Camera Poses via Pixe
                 The dependence on SfM-computed camera poses prohibits 3D representation learning at-scale. 
                 In this work, we train 3D scene representations without camera poses. 
                 Our method works robustly, even succeeding on the challenging CO3D dataset, on which classical SfM methods struggle.
-                Our key innovation is a camera pose formulation which leverages the robustness of optical flow methods. Specificall, we lift optical flow into scene flow via differentiable rendering, and differentiably solve for camera pose via a weighted Procrustes formulation. 
-                Our method is supervised only with optical flow and re-rendering losses.
+                Our key innovation is a camera pose formulation which leverages the robustness of optical flow methods. Specifically, we lift optical flow into scene flow via differentiable rendering, and differentiably solve for camera pose via a weighted Procrustes formulation. 
+                Our method is only supervised by optical flow and re-rendering losses.
             </p>
             <h2>TL;DR: pixelNeRF trained without camera poses; works on CO3D; ~20fps odometry </h2>
         </center>
