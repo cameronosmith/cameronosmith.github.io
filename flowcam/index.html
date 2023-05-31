@@ -192,8 +192,10 @@
                     <!-- <img id="teaser" src="img/teaser.png" class="img-responsive" alt="teaser figure"> -->
                     <br>
                     <h7 class="text-justify">
-                        Above we demoonstrate <b>generalizable pose estimation </b> (~20fps) followed by <b>generalizable view synthesis</b> on top of a smoothened and wobbled trajectory. Since our model estimates poses and geometry on short video clips, we apply both our pose estimation and view synthesis on sliding windows of the video and trajectory. 
-                        Our model is supervised only via re-rendering losses and optical flow. 
+                        Above we demonstrate <b>generalizable pose estimation </b> (~20fps) followed by <b>generalizable view synthesis</b> on top of a smoothened and wobbled trajectory. 
+                        That is, our model infers poses and renders novel views in feed-forward fashion, without performing any per-scene optimization.
+                        Since our model estimates poses and geometry on short video clips, we apply both our pose estimation and view synthesis on sliding windows of the video and trajectory. 
+                        Our model is trained <b>without camera poses</b>, supervised only via re-rendering losses and optical flow. 
                     </h7>
                 </div>
             </div>
@@ -364,23 +366,44 @@ trained end-to-end, assuming only an off-the-shelf optical flow estimator.
                         <br>
                         <h4>KITTI</h4>
                             <div class="row gif-label">
-
-                                <div class="col-2">Input Video</div>
-                                <div class="col-2">Our Recon.</div>
-                                <div class="col-2">VidAE Recon.</div>
-                                <div class="col-2">RUST Recon.</div>
-                                <div class="col-2">Our Poses</div>
-                                <div class="col-2">VidAE Poses</div>
-
+                                <div class="col-12">Input Video</div>
                             </div>
-                                <div class="row">
-                                    <div class="col-2"> <div padding-top="120%"><video src="img/vid_recon_kitti/col_0_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
-                                    <div class="col-2 pose""> <video src="img/vid_recon_kitti/col_1_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
-                                    <div class="col-2 pose"> <video src="img/vid_recon_kitti/col_2_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                    <div class="col-2"> <video src="img/vid_recon_kitti/col_3_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                    <div class="col-2"> <video src="img/vid_recon_kitti/col_4_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                    <div class="col-2"> <video src="img/vid_recon_kitti/col_5_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                </div>
+                            <div class="row">
+                                <div class="col-6"> <div padding-top="120%"><video src="img/vid_recon_kitti/col_0_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-6 pose""> <video src="img/vid_recon_kitti2/col_0_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                            </div>
+                            <div class="row gif-label">
+                                <div class="col-12">Our reconstruction</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6"> <div padding-top="120%"><video src="img/vid_recon_kitti/col_1_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-6 pose""> <video src="img/vid_recon_kitti2/col_1_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                            </div>
+                            <div class="row gif-label">
+                                <div class="col-12">VidAE Reconstruction</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6"> <div padding-top="120%"><video src="img/vid_recon_kitti/col_2_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-6 pose""> <video src="img/vid_recon_kitti2/col_2_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                            </div>
+                            <div class="row gif-label">
+                                <div class="col-12">RUST Reconstruction</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6"> <div padding-top="120%"><video src="img/vid_recon_kitti/col_3_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-6 pose""> <video src="img/vid_recon_kitti2/col_3_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                            </div>
+                            <div class="row gif-label">
+                                <div class="col-3">Our Poses</div>
+                                <div class="col-3">VidAE Poses</div>
+                                <div class="col-3">Our Poses</div>
+                                <div class="col-3">VidAE Poses</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3"> <div padding-top="0%"><video src="img/vid_recon_kitti/col_4_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-3 pose""> <video src="img/vid_recon_kitti/col_5_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                                <div class="col-3"> <div padding-top="0%"><video src="img/vid_recon_kitti2/col_4_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-3 pose""> <video src="img/vid_recon_kitti2/col_5_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
                         </div>
                     </div> <!-- row -->
             </div>
