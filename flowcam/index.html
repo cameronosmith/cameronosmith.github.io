@@ -192,10 +192,10 @@
                     <!-- <img id="teaser" src="img/teaser.png" class="img-responsive" alt="teaser figure"> -->
                     <br>
                     <h7 class="text-justify">
-                        Above we demonstrate <b>generalizable pose estimation </b> (~20fps) followed by <b>generalizable view synthesis</b> on top of a smoothened and wobbled trajectory. 
-                        That is, our model infers poses and renders novel views in feed-forward fashion, without performing any per-scene optimization.
+                        Our model infers poses and reconstructs a radiance field in a single feed-forward pass, without performing any per-scene optimization. 
+                        Above we demonstrate <b>real-time, feed-forward pose estimation </b>(~20fps), followed by <b>feed-forward 3D reconstruction and view synthesis</b> with a novel trajectory. 
                         Since our model estimates poses and geometry on short video clips, we apply both our pose estimation and view synthesis on sliding windows of the video and trajectory. 
-                        Our model is trained <b>without camera poses</b>, supervised only via re-rendering losses and optical flow. 
+                        Our model is trained <b>without camera poses</b>, supervised only via re-rendering losses and optical flow on top of <b>uncurated video</b>.
                     </h7>
                 </div>
             </div>
