@@ -237,6 +237,10 @@ trained end-to-end, assuming only an off-the-shelf optical flow estimator.
         <div class="row mb-4">
             <div class="col-md-6 mx-auto">
                 <h2>Additional Sliding-Window CO3D results</h2>
+                <h7>Here we show additional pose estimation and novel view synthesis results. 
+                    As our model operates on shorter video clips, we apply our model in a sliding window fashion for these longer sequences. 
+                    Though this sliding window approach allows our model to estimate poses and 3D geometry for extended sequences, it also yields temporal flickering in the renderings. 
+                    Exploring global optimization extensions for longer sequences is exciting future work.</h7>
 
                 <div id="teaser-two" width="100%">
                         <div class="mx-auto">
@@ -393,6 +397,7 @@ trained end-to-end, assuming only an off-the-shelf optical flow estimator.
                                 <div class="col-6"> <div padding-top="120%"><video src="img/vid_recon_kitti/col_3_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
                                 <div class="col-6 pose""> <video src="img/vid_recon_kitti2/col_3_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
                             </div>
+                            <br>
                             <div class="row gif-label">
                                 <div class="col-3">Our Poses</div>
                                 <div class="col-3">VidAE Poses</div>
@@ -405,9 +410,45 @@ trained end-to-end, assuming only an off-the-shelf optical flow estimator.
                                 <div class="col-3"> <div padding-top="0%"><video src="img/vid_recon_kitti2/col_4_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
                                 <div class="col-3 pose""> <video src="img/vid_recon_kitti2/col_5_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
                         </div>
+
+                        <br>
+                        <br>
+                        <h2>Fine-tuned Pose Estimation and View Synthesis on Large-Scale, Out-of-Distribution Scene</h2>
+                        <h7>
+                            We evaluate our RealEstate10K-trained model on a significantly out-of-distribution scene from the Tanks and Temples dataset, first without any scene-adaptation and then with. 
+                            Note that our scene-adaptation fine-tuning stage is not equivalent to direct optimization of camera poses and a radiance field, as performed e.g. in BARF: neither camera poses nor 
+                            the radiance field are free variables. Instead, we fine-tune the weights of our convolutional inference backbone and MLP renderer on subsequences of the target video for more accurate feed-forward prediction.
+                            Even with this significant distribution gap, our RealEstate10K-model's estimated trajectory captures the looping structure of the ground truth, albeit with accumulated drift. 
+                            After the scene-adaptation fine-tuning stage, our model estimates poses which align closely with the ground truth, despite having no loop closure mechanism. 
+                            We also plot the trajectory estimated by BARF, which fails to capture the correct pose distribution.
+                        </h7>
+                            <div class="row gif-label">
+                                <div class="col-4">Input Video</div>
+                                <div class="col-4">Rendered RGB</div>
+                                <div class="col-4">Rendered Depth</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4"> <div padding-top="120%"><video src="img/bulldozer/rgb_input (6).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-4 pose""> <video src="img/bulldozer/rgb_render (37).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                                <div class="col-4 pose""> <video src="img/bulldozer/rgb_render (36).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                            </div>
+                            <br>
+                            <div class="row gif-label">
+                                <div class="col-3">BARF</div>
+                                <div class="col-3">Our RealEstate10K Model</div>
+                                <div class="col-3">Our Scene Adapted Model</div>
+                                <div class="col-3">Novel trajectory</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3"> <div padding-top="0%"><video src="img/bulldozer/barf_poses.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-3 pose""> <video src="img/bulldozer/re10k_poses.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                                <div class="col-3"> <div padding-top="0%"><video src="img/bulldozer/adapted_poses (1).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-3 pose""> <video src="img/bulldozer/novel_poses.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                        </div>
                     </div> <!-- row -->
+
             </div>
-            
+
             <br>
             <br>
             <div class="row mb-3">
