@@ -105,6 +105,19 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <div role="alert" id='alert-if-safari'></div>
+
+    <script>
+        
+        var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+        if (is_safari) {
+            const alert_div = document.getElementById('alert-if-safari')
+            alert_div.className = 'alert alert-danger'
+            alert_div.innerHTML = 'Videos below sometimes do not load in Safari. Please view our webpage on Chrome/Firefox until we repair this.'
+        }
+
+    </script>
+
     <body>
         <div class="container">
             <div class="row mb-2 mt-4" id="paper-title">
