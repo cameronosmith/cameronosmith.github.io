@@ -42,13 +42,11 @@ td {
 }
 
 .photo {
-  padding-left: 2.5%;
   width: 25%;
   max-width: 25%;
 }
 
 .pub-photo {
-  padding-left: 0.5%;
   padding-right: 2.5%;
   width: 30%;
   max-width:300px;
