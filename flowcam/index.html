@@ -312,128 +312,37 @@ trained end-to-end, assuming only an off-the-shelf optical flow estimator.
 
                     <h2>Uncurated Results on Video Reconstruction and Pose Estimation</h2>
                     <p class="text-justify">
-                        We compare our method to the baselines Video Autoencoder and RUST on the task of video reconstruction. 
-                        We evaluate each method on CO3D-Hydrants, CO3D-10Category, RealEstate10k, and KITTI.
-                        Video reconstruction is the task of reconstructing an input video using a sparse set of context frames and estimated poses. 
-                        We use 3 context views on CO3D and 2 on RealEstate10K and KITTI.
-                        Note that RUST uses <i>latent poses</i> instead of explicit ones.
+                        Here we plot video reconstructions (time interpolations) and novel view synthesis results (time interpolations with a camera wobble) for an uncurated validation set on each dataset.
+                        Note that some CO3D videos are recordings of videos and not actual 3D scenes, yet our model behaves reasonably. 
                     </p>
-                    <h4>CO3D-Hydrants</h4>
+                    <br><h2>CO3D-Hydrants</h2><br>
                     <div width="100%">
-                        <div class="mx-auto">
-                            <div class="row gif-label">
-                                <div class="col-2">Input Video</div>
-                                <div class="col-2">Our Recon.</div>
-                                <div class="col-2">VidAE Recon.</div>
-                                <div class="col-2">RUST Recon.</div>
-                                <div class="col-2">Our Poses</div>
-                                <div class="col-2">VidAE Poses</div>
-
-                            </div>
-                                <div class="row">
-                                    <div class="col-2"> <video src="img/vid_recon_hydrant/col_0_hydrant.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                    <div class="col-2 pose""> <video src="img/vid_recon_hydrant/col_1_hydrant.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
-                                    <div class="col-2 pose"> <video src="img/vid_recon_hydrant/col_2_hydrant.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                    <div class="col-2"> <video src="img/vid_recon_hydrant/col_3_hydrant.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                    <div class="col-2"> <video src="img/vid_recon_hydrant/col_4_hydrant.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                    <div class="col-2"> <video src="img/vid_recon_hydrant/col_5_hydrant.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                    <h4><br>CO3D-10Category</h4>
+                        <div class="mx-auto"> <div> <video src="img/hydrants_grid.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> 
+                    </div>
+                    <br> <h2>CO3D-10Category</h2><br>
                     <div width="100%">
-                        <div class="mx-auto">
-                            <div class="row gif-label">
-                                <div class="col-2">Input Video</div>
-                                <div class="col-2">Our Recon.</div>
-                                <div class="col-2">VidAE Recon.</div>
-                                <div class="col-2">RUST Recon.</div>
-                                <div class="col-2">Our Poses</div>
-                                <div class="col-2">VidAE Poses</div>
-
-                            </div>
-                                <div class="row">
-                                    <div class="col-2"> <video src="img/vid_recon_10cat/col_0_10cat.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                    <div class="col-2 pose""> <video src="img/vid_recon_10cat/col_1_10cat.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
-                                    <div class="col-2 pose"> <video src="img/vid_recon_10cat/col_2_10cat.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                    <div class="col-2"> <video src="img/vid_recon_10cat/col_3_10cat.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                    <div class="col-2"> <video src="img/vid_recon_10cat/col_4_10cat.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                    <div class="col-2"> <video src="img/vid_recon_10cat/col_5_10cat.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                </div>
-                    <br>
-                    <h4>RealEstate10K</h4>
+                        <div class="mx-auto"> <div> <video src="img/10cat_grid.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> 
+                    </div>
+                    <br><h2>RealEstate10K</h2><br>
                     <div width="100%">
-                        <div class="mx-auto">
-                            <div class="row gif-label">
-
-                                <div class="col-2">Input Video</div>
-                                <div class="col-2">Our Recon.</div>
-                                <div class="col-2">VidAE Recon.</div>
-                                <div class="col-2">RUST Recon.</div>
-                                <div class="col-2">Our Poses</div>
-                                <div class="col-2">VidAE Poses</div>
-
-                            </div>
-                                <div class="row">
-                                    <div class="col-2"> <video src="img/vid_recon_re10k/col_0_re10k.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                    <div class="col-2 pose""> <video src="img/vid_recon_re10k/col_1_re10k.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
-                                    <div class="col-2 pose"> <video src="img/vid_recon_re10k/col_2_re10k.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                    <div class="col-2"> <video src="img/vid_recon_re10k/col_3_re10k.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                    <div class="col-2"> <video src="img/vid_recon_re10k/col_4_re10k.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                    <div class="col-2"> <video src="img/vid_recon_re10k/col_5_re10k.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
-                                </div>
-                        <br>
-                        <h4>KITTI</h4>
-                            <div class="row gif-label">
-                                <div class="col-12">Input Video</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6"> <div padding-top="120%"><video src="img/vid_recon_kitti/col_0_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
-                                <div class="col-6 pose""> <video src="img/vid_recon_kitti2/col_0_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
-                            </div>
-                            <div class="row gif-label">
-                                <div class="col-12">Our reconstruction</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6"> <div padding-top="120%"><video src="img/vid_recon_kitti/col_1_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
-                                <div class="col-6 pose""> <video src="img/vid_recon_kitti2/col_1_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
-                            </div>
-                            <div class="row gif-label">
-                                <div class="col-12">VidAE Reconstruction</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6"> <div padding-top="120%"><video src="img/vid_recon_kitti/col_2_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
-                                <div class="col-6 pose""> <video src="img/vid_recon_kitti2/col_2_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
-                            </div>
-                            <div class="row gif-label">
-                                <div class="col-12">RUST Reconstruction</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6"> <div padding-top="120%"><video src="img/vid_recon_kitti/col_3_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
-                                <div class="col-6 pose""> <video src="img/vid_recon_kitti2/col_3_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
-                            </div>
-                            <br>
-                            <div class="row gif-label">
-                                <div class="col-3">Our Poses</div>
-                                <div class="col-3">VidAE Poses</div>
-                                <div class="col-3">Our Poses</div>
-                                <div class="col-3">VidAE Poses</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3"> <div padding-top="0%"><video src="img/vid_recon_kitti/col_4_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
-                                <div class="col-3 pose""> <video src="img/vid_recon_kitti/col_5_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
-                                <div class="col-3"> <div padding-top="0%"><video src="img/vid_recon_kitti2/col_4_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
-                                <div class="col-3 pose""> <video src="img/vid_recon_kitti2/col_5_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
-                        </div>
-
+                        <div class="mx-auto"> <div> <video src="img/re10k_grid.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> 
+                    </div>
+                    <br><h2>KITTI</h2>
+                    <div width="100%">
+                        <div class="mx-auto"> <div> <video src="img/kitti_grid.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> 
+                    </div>
+                    
                         <br>
                         <br>
                         <h2>Fine-tuned Pose Estimation and View Synthesis on Large-Scale, Out-of-Distribution Scene</h2>
-                        <h7>
+                        <h5>
                             We evaluate our RealEstate10K-trained model on a significantly out-of-distribution scene from the Tanks and Temples dataset, first without any scene-adaptation and then with. 
                             Note that our scene-adaptation fine-tuning stage is not equivalent to direct optimization of camera poses and a radiance field, as performed e.g. in BARF: neither camera poses nor 
                             the radiance field are free variables. Instead, we fine-tune the weights of our convolutional inference backbone and MLP renderer on subsequences of the target video for more accurate feed-forward prediction.
                             Even with this significant distribution gap, our RealEstate10K-model's estimated trajectory captures the looping structure of the ground truth, albeit with accumulated drift. 
                             After the scene-adaptation fine-tuning stage, our model estimates poses which align closely with the ground truth, despite having no loop closure mechanism. 
                             We also plot the trajectory estimated by BARF, which fails to capture the correct pose distribution.
-                        </h7>
+                        </h5>
                             <div class="row gif-label">
                                 <div class="col-4">Input Video</div>
                                 <div class="col-4">Rendered RGB</div>
