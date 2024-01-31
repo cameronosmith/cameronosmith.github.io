@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlowMap</title>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"
+></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"
+/>
+
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://cameronosmith.github.io">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <!--<a class="navbar-item" href="https://cameronosmith.github.io/flowcam/"> FlowCam </a>-->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">FlowMap: Simple Pose Estimation via Optical Flow and Point Tracking</h1>
+
+           <!--
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+             <a href="https://cameronosmith.github.io">Cameron Smith</a><sup>1</sup>,</span>
+
+            <span class="author-block">
+              <a href="https://davidcharatan.com/#/">David Charatan*</a><sup>1</sup>,</span>
+            <span class="author-block">
+            <span class="author-block">
+              <a href="">Nishant Jain*</a><sup>2</sup>,</span>
+            <span class="author-block">
+            <span class="author-block">
+              <a href="https://ayushtewari.com/">Ayush Tewari</a><sup>1</sup>,</span>
+            <span class="author-block">
+            <span class="author-block">
+              <a href="https://www.vincentsitzmann.com/">Vincent Sitzmann</a><sup>1</sup></span>
+            <span class="author-block">
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>MIT</span>
+            <span class="author-block"><sup>2</sup>IIT Roorkee</span>
+          </div>
+
+            -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+    <p style="  text-align: center; ">Here we show Gaussian Splats trained with our poses and geometry re-rendering the input videos:</p>
+    <br>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/our_splats/our_bonsai.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/our_splats/our_horns.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/our_splats/our_hydrant.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/our_splats/our_caterpillar.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/our_splats/our_bench.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/our_splats/our_kitchen.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+        
+  </div>
+</section>
+
+<br>
+<br>
+<br>
+<div class="columns is-centered has-text-centered">
+<img src="static/images/method_landscape_nogauss.png"  style="height:400px;"/>
+</div>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We introduce FlowMap, a novel method that solves for camera focal length, camera poses and per-frame depth given video sequences.
+State-of-the-art bundle adjustment methods are complex, multi-stage pipelines that require carefully designed optimizers. Though there are attempts of making these methods differentiable and integrating them in end-to-end pipelines, gradients obtained from existing methods are not usable in end-to-end systems, and bundle adjustment remains a building block largely untouched by first-order methods and deep learning.
+We instead propose to combine differentiable rendering and off-the-shelf optical flow to jointly estimate per-frame depth as well as frame-to-frame camera poses.
+Despite its simplicity, we demonstrate that FlowMap is significantly more robust than the gold standard, COLMAP, and succeeds to reconstruct both intrinsic and extrinsic camera parameters on casually captured video without fail. 
+We significantly outperform both state-of-the-art SLAM algorithms in terms of camera pose accuracy, while additionally estimating camera intrinsic parameters.
+Finally, we leverage FlowMap's inherent end-to-end differentiability to set a new state-of-the-art in self-supervised monocular depth and ego-motion estimation.
+
+          
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <!--<iframe src="static/videos/overview.mov"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+            <video  controls > <source src="static/videos/flowmap_draft.mp4" type="video/mp4">
+            </video>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-3">Evaluations</h2>
+    <p>
+      We evaluated our method for pose estimation and for downstream Gaussian Splats initialized with our poses and geometry on popular scenes. Specifically, we tested scenes up to 140 frames in length and held out every 10th frame for a test set.  
+      * Requires known intrinsics.
+    </p>
+    <br>
+      <!-- Visual Effects. -->
+        <div class="content">
+        <img src="static/images/flowmap_bar_plots.png" />
+        </div>
+      <!--/ Visual Effects. -->
+    </div>
+  </div>
+
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-3">Side-by-Side Reconstructions</h2>
+    <p>
+      We compare test view reconstructions with NoPe-NeRF and DROID-SLAM. Note that both require known intrinsics whereas ours estimates them.  * Requires known intrinsics.
+    </p>
+    <br>
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          
+          <img-comparison-slider>
+            <img slot="first" src="static/images/nope_bonsai_marked.png" />
+            <img slot="second" src="static/images/our_bonsai_marked.png" />
+          </img-comparison-slider>
+                    
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            <img-comparison-slider>
+              <img slot="first" src="static/images/droid_bench_marked.png" />
+              <img slot="second" src="static/images/our_bench_marked.png" />
+            </img-comparison-slider>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          
+          <img-comparison-slider>
+             <img slot="first" src="static/images/our_2stage_marked.png" />
+             <img slot="second" src="static/images/our_kitchen_marked.png" />
+          </img-comparison-slider>
+                    
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            <img-comparison-slider>
+              <img slot="first" src="static/images/gt_flower_marked.png" />
+              <img slot="second" src="static/images/our_flower_marked.png" />
+            </img-comparison-slider>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-3">Pose Plots</h2>
+    <p>
+      Here we show pose plots from each method corresponding to each of the Slatting videos above. Poses are before any Splatting-based fine-tuning. * Requires known intrinsics.
+    </p>
+
+    <br>
+
+  <div class="columns is-centered has-text-centered">
+  <img src="static/images/flowmap_results_dense_just_poses.png"  style="width:950px;"/>
+  </div>
+    
+  </div>
+
+
+    <!--/ Matting. -->
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+
+          <p>
+            We thank the authors of Nerfies that kindly open sourced the template of this website.
+          </p>
+    </div>
+  </div>
+</footer>
+</body>
+
+
+</html>
