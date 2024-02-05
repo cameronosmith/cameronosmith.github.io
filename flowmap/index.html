@@ -237,14 +237,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We introduce FlowMap, a novel method that solves for camera focal length, camera poses and per-frame depth given video sequences.
-State-of-the-art bundle adjustment methods are complex, multi-stage pipelines that require carefully designed optimizers. Though there are attempts of making these methods differentiable and integrating them in end-to-end pipelines, gradients obtained from existing methods are not usable in end-to-end systems, and bundle adjustment remains a building block largely untouched by first-order methods and deep learning.
-We instead propose to combine differentiable rendering and off-the-shelf optical flow to jointly estimate per-frame depth as well as frame-to-frame camera poses.
-Despite its simplicity, we demonstrate that FlowMap is significantly more robust than the gold standard, COLMAP, and succeeds to reconstruct both intrinsic and extrinsic camera parameters on casually captured video without fail. 
-We significantly outperform both state-of-the-art SLAM algorithms in terms of camera pose accuracy, while additionally estimating camera intrinsic parameters.
-Finally, we leverage FlowMap's inherent end-to-end differentiability to set a new state-of-the-art in self-supervised monocular depth and ego-motion estimation.
-
-          
+We introduce FlowMap, a novel method that solves for camera focal length, camera poses and per-frame depth given video sequences.  State-of-the-art bundle adjustment methods are complex, multi-stage pipelines that require carefully designed optimizers. Though there are attempts of making these methods differentiable and integrating them in end-to-end pipelines, gradients obtained from existing methods are not usable in end-to-end systems, and bundle adjustment remains a building block largely untouched by first-order methods and deep learning.  We instead propose to combine differentiable rendering and off-the-shelf optical flow to jointly estimate per-frame depth as well as frame-to-frame camera poses.  Despite its simplicity, we demonstrate that FlowMap is significantly more robust than the gold standard, COLMAP, and succeeds in reconstructing both intrinsic and extrinsic camera parameters on casually captured video without fail.  We significantly outperform both state-of-the-art SLAM algorithms in terms of camera pose accuracy, while additionally estimating camera intrinsic parameters.
           </p>
         </div>
       </div>
