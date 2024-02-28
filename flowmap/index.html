@@ -85,7 +85,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">FlowMap: Simple Pose Estimation via Optical Flow and Point Tracking</h1>
+          <h1 class="title is-1 publication-title">FlowMap</h1>
 
            <!--
           <div class="is-size-5 publication-authors">
@@ -175,42 +175,45 @@
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
-    <p style="  text-align: center; ">Here we show Gaussian Splats trained with our poses and geometry re-rendering the input videos:</p>
+    <p style="  text-align: center; ">Here we show Gaussian Splats trained with our poses and geometry on popular scenes:</p>
     <br>
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/our_splats/our_bonsai.mp4"
+        
+        
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/renders_manual/refactor_hydrant_splat_both.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/renders_manual/refactor_bonsai_splat_both.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/renders_manual/refactor_caterpillar_splat_both.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-mask">
           <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/our_splats/our_horns.mp4"
+            <source src="./static/videos/renders_manual/refactor_horns_splat_both.mp4"
                     type="video/mp4">
           </video>
         </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/our_splats/our_hydrant.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/our_splats/our_caterpillar.mp4"
+        
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/renders_manual/refactor_bench_splat_both.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-toby">
           <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/our_splats/our_bench.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/our_splats/our_kitchen.mp4"
+            <source src="./static/videos/renders_manual/refactor_kitchen_splat_both.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -225,7 +228,7 @@
 <br>
 <br>
 <div class="columns is-centered has-text-centered">
-<img src="static/images/method_landscape_nogauss.png"  style="height:400px;"/>
+<img src="static/highlevel3.png"  style="height:200px;"/>
 </div>
 
 
@@ -237,13 +240,52 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-We introduce FlowMap, a novel method that solves for camera focal length, camera poses and per-frame depth given video sequences.  State-of-the-art bundle adjustment methods are complex, multi-stage pipelines that require carefully designed optimizers. Though there are attempts of making these methods differentiable and integrating them in end-to-end pipelines, gradients obtained from existing methods are not usable in end-to-end systems, and bundle adjustment remains a building block largely untouched by first-order methods and deep learning.  We instead propose to combine differentiable rendering and off-the-shelf optical flow to jointly estimate per-frame depth as well as frame-to-frame camera poses.  Despite its simplicity, we demonstrate that FlowMap is significantly more robust than the gold standard, COLMAP, and succeeds in reconstructing both intrinsic and extrinsic camera parameters on casually captured video without fail.  We significantly outperform both state-of-the-art SLAM algorithms in terms of camera pose accuracy, while additionally estimating camera intrinsic parameters.
+      We introduce FlowMap, a novel method that solves for camera focal length, camera poses and per-frame depth given video sequences.  State-of-the-art bundle adjustment methods are complex, multi-stage pipelines that require carefully designed optimizers. Though there are attempts of making these methods differentiable and integrating them in end-to-end pipelines, gradients obtained from existing methods are not usable in end-to-end systems, and bundle adjustment remains a building block largely untouched by first-order methods and deep learning.  We instead propose to combine differentiable rendering and off-the-shelf optical flow to jointly estimate per-frame depth as well as frame-to-frame camera poses.  Despite its simplicity, we demonstrate that FlowMap is significantly more robust than the gold standard, COLMAP, and succeeds in reconstructing both intrinsic and extrinsic camera parameters on casually captured video without fail.  We significantly outperform both state-of-the-art SLAM algorithms in terms of camera pose accuracy, while additionally estimating camera intrinsic parameters.
           </p>
         </div>
       </div>
     </div>
+    
+</section>
 
-    <!-- Paper video. -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Splats Initialized with our Poses and Geometry</h2>
+        <h2 class="title is-4">(Raw Video → FlowMap → Gaussian Splatting)</h2>
+        <div class="content has-text-justified">
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths"> <h1 class="title is-4">Popular Datasets</h1> </div>
+    </div>
+      <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/popular_grid.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+    <br>
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths"> <h1 class="title is-4">CO3D</h1> </div>
+    </div>
+      <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/co3d_grid.mp4"
+                    type="video/mp4">
+          </video>
+      </div>    
+    <br>
+    <!--<div class="columns is-centered has-text-centered"> <div class="column is-four-fifths"> <h1 class="title is-4">Casual Captures (straight from phone camera)</h1> </div> </div>-->
+</section>
+
+
+<!-- Paper video. -->
+<section class="section">
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
@@ -316,23 +358,6 @@ We introduce FlowMap, a novel method that solves for camera focal length, camera
 
         </div>
       </div>
-    </div>
-  <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          
-          <img-comparison-slider>
-             <img slot="first" src="static/images/our_2stage_marked.png" />
-             <img slot="second" src="static/images/our_kitchen_marked.png" />
-          </img-comparison-slider>
-                    
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
       <div class="column">
         <div class="columns is-centered">
           <div class="column content">
@@ -346,6 +371,34 @@ We introduce FlowMap, a novel method that solves for camera focal length, camera
         </div>
       </div>
     </div>
+  <!--
+  <div class="columns is-centered">
+
+      <div class="column">
+        <div class="content">
+          
+          <img-comparison-slider>
+             <img slot="first" src="static/images/our_2stage_marked.png" />
+             <img slot="second" src="static/images/our_kitchen_marked.png" />
+          </img-comparison-slider>
+                    
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            <img-comparison-slider>
+              <img slot="first" src="static/images/gt_flower_marked.png" />
+              <img slot="second" src="static/images/our_flower_marked.png" />
+            </img-comparison-slider>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  -->
 
 
 <section class="section">
@@ -353,35 +406,42 @@ We introduce FlowMap, a novel method that solves for camera focal length, camera
 
     <h2 class="title is-3">Pose Plots</h2>
     <p>
-      Here we show pose plots from each method corresponding to each of the Slatting videos above. Poses are before any Splatting-based fine-tuning. * Requires known intrinsics.
+      Here we show pose plots and estimated depth maps for popular scenes.
     </p>
+    <br>
+      <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/pose_plots.mp4" type="video/mp4">
+          </video>
+      </div>
 
     <br>
 
-  <div class="columns is-centered has-text-centered">
-  <img src="static/images/flowmap_results_dense_just_poses.png"  style="width:950px;"/>
-  </div>
+  <!--<div class="columns is-centered has-text-centered"> <img src="static/images/flowmap_results_dense_just_poses.png"  style="width:950px;"/> </div>-->
     
   </div>
 
 
     <!--/ Matting. -->
 
+<!--
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code</code></pre>
   </div>
 </section>
+-->
 
+<br>
+<br>
+<br>
+<br>
 
 <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
-
-          <p>
-            We thank the authors of Nerfies that kindly open sourced the template of this website.
-          </p>
+          <p> We thank the authors of Nerfies that kindly open sourced the template of this website.  </p>
     </div>
   </div>
 </footer>
