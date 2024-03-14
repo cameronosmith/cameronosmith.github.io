@@ -259,7 +259,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-      We introduce FlowMap, a novel method that solves for camera focal length, camera poses and per-frame depth given video sequences.  State-of-the-art bundle adjustment methods are complex, multi-stage pipelines that require carefully designed optimizers. Though there are attempts of making these methods differentiable and integrating them in end-to-end pipelines, gradients obtained from existing methods are not usable in end-to-end systems, and bundle adjustment remains a building block largely untouched by first-order methods and deep learning.  We instead propose to combine differentiable rendering and off-the-shelf optical flow to jointly estimate per-frame depth as well as frame-to-frame camera poses.  Despite its simplicity, we demonstrate that FlowMap is significantly more robust than the gold standard, COLMAP, and succeeds in reconstructing both intrinsic and extrinsic camera parameters on casually captured video without fail.  We significantly outperform both state-of-the-art SLAM algorithms in terms of camera pose accuracy, while additionally estimating camera intrinsic parameters.
+This paper introduces FlowMap, an end-to-end differentiable method that solves for precise camera poses, camera intrinsics, and per-frame dense depth of a video sequence.  Our method performs per-video gradient-descent minimization of a simple least-squares objective that compares the optical flow induced by depth, intrinsics, and poses against correspondences obtained via off-the-shelf optical flow and point tracking.  Alongside the use of point tracks to encourage long-term geometric consistency, we introduce a differentiable re-parameterization of depth, intrinsics, and pose that is amenable to first-order optimization.  We empirically show that camera parameters and dense depth recovered by our method enable photo-realistic novel view synthesis on 360° trajectories using Gaussian Splatting.  Our method not only far outperforms prior gradient-descent based bundle adjustment methods, but surprisingly performs on par with COLMAP, the state-of-the-art SfM method, on the downstream task of 360° novel view synthesis - even though our method is purely gradient-descent based, fully differentiable, and presents a complete departure from conventional SfM.  Our result opens the door to the self-supervised training of neural networks that perform camera parameter estimation, 3D reconstruction, and novel view synthesis.
           </p>
         </div>
       </div>
@@ -333,11 +333,21 @@
     </div>
   </div>
 -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column ">
+        <h2 class="title is-3">Point Clouds and Cameras from our Method</h2>
+        <div class="content has-text-justified">
+        <img src="static/images/point_clouds_more.png"  style="width:1020px;"/>
+        </div>
+      </div>
+    </div>
+    
+</section>
 
 
-<div class="columns is-centered has-text-centered">
-<img src="static/images/point_clouds_more.png"  style="width:1020px;"/>
-</div>
 
 
 <section class="section">
