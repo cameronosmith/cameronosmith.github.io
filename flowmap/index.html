@@ -14,6 +14,23 @@
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"
 />
+<style>
+
+#deck-container {
+  width: 100%;
+  height: 500px;
+}
+
+#deck-container canvas {
+  z-index: 1;
+}
+</style>
+
+
+<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+<script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.8.*/dist/index.js'></script>
 
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
@@ -113,9 +130,9 @@
 
             -->
 
+              <!--  
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
               <span class="link-block">
                 <a href=""
                    class="external-link button is-normal is-rounded is-dark">
@@ -134,7 +151,6 @@
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Video Link. -->
               <span class="link-block">
                 <a href="=MrKrnHhk8IA"
                    class="external-link button is-normal is-rounded is-dark">
@@ -144,7 +160,8 @@
                   <span>Video</span>
                 </a>
               </span>
-              <!-- Code Link. -->
+              -->
+              <!-- Code Link.
               <span class="link-block">
                 <a href=""
                    class="external-link button is-normal is-rounded is-dark">
@@ -154,7 +171,8 @@
                   <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
+              -->
+              <!-- Dataset Link. 
               <span class="link-block">
                 <a href=""
                    class="external-link button is-normal is-rounded is-dark">
@@ -164,6 +182,7 @@
                   <span>Data</span>
                   </a>
             </div>
+              -->
 
           </div>
         </div>
@@ -228,7 +247,7 @@
 <br>
 <br>
 <div class="columns is-centered has-text-centered">
-<img src="static/images/highlevel4.png"  style="height:320px;"/>
+<img src="static/images/highlevel_yoda.png"  style="height:320px;"/>
 </div>
 
 
@@ -260,7 +279,7 @@
       </div>
     </div>
     <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths"> <h1 class="title is-4">Popular Datasets</h1> </div>
+        <!--<div class="column is-four-fifths"> <h1 class="title is-4">Popular Datasets</h1> </div>-->
     </div>
       <div class="item item-steve">
           <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
@@ -270,7 +289,7 @@
         </div>
     <br>
     <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths"> <h1 class="title is-4">CO3D</h1> </div>
+        <!--<div class="column is-four-fifths"> <h1 class="title is-4">CO3D</h1> </div>-->
     </div>
       <div class="item item-steve">
           <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
@@ -282,8 +301,7 @@
     <!--<div class="columns is-centered has-text-centered"> <div class="column is-four-fifths"> <h1 class="title is-4">Casual Captures (straight from phone camera)</h1> </div> </div>-->
 </section>
 
-
-<!-- Paper video. -->
+<!-- Paper video. 
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -291,15 +309,15 @@
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/A9vHfQffT0M?si=ADJA-pRgv3w18dzZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <!--<video  controls > <source src="static/videos/flowmap_draft.mp4" type="video/mp4"> </video>-->
         </div>
       </div>
     </div>
-    <!--/ Paper video. -->
   </div>
 </section>
+-->
 
 
+<!--
 <section class="section">
   <div class="container is-max-desktop">
 
@@ -309,17 +327,17 @@
       * Requires known intrinsics.
     </p>
     <br>
-      <!-- Visual Effects. -->
         <div class="content">
         <img src="static/images/flowmap_bar_plots.png" />
         </div>
-      <!--/ Visual Effects. -->
     </div>
   </div>
+-->
 
 
-
-
+<div class="columns is-centered has-text-centered">
+<img src="static/images/point_clouds_more.png"  style="width:1020px;"/>
+</div>
 
 
 <section class="section">
@@ -358,28 +376,16 @@
 
         </div>
       </div>
-      <div class="column">
-        <div class="columns is-centered">
-          <div class="column content">
-            <img-comparison-slider>
-              <img slot="first" src="static/images/gt_flower_marked.png" />
-              <img slot="second" src="static/images/our_flower_marked.png" />
-            </img-comparison-slider>
-
-          </div>
-
-        </div>
-      </div>
+      
     </div>
-  <!--
   <div class="columns is-centered">
 
       <div class="column">
         <div class="content">
           
           <img-comparison-slider>
-             <img slot="first" src="static/images/our_2stage_marked.png" />
-             <img slot="second" src="static/images/our_kitchen_marked.png" />
+             <img slot="first" src="static/images/colmap_kitchen_marked.png" />
+             <img slot="second" src="static/images/our_kitchen_marked_41.png" />
           </img-comparison-slider>
                     
         </div>
@@ -397,8 +403,7 @@
 
         </div>
       </div>
-    </div>
-  -->
+</div>
 
 
 <section class="section">
@@ -446,6 +451,5 @@
   </div>
 </footer>
 </body>
-
 
 </html>
