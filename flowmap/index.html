@@ -1,42 +1,37 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FlowMap</title>
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"
-></script>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"
-/>
-<style>
+  <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css" />
+  <style>
+    #deck-container {
+      width: 100%;
+      height: 500px;
+    }
 
-#deck-container {
-  width: 100%;
-  height: 500px;
-}
-
-#deck-container canvas {
-  z-index: 1;
-}
-</style>
+    #deck-container canvas {
+      z-index: 1;
+    }
+  </style>
 
 
-<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
-<script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.8.*/dist/index.js'></script>
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+  <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.8.*/dist/index.js'></script>
 
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-   <!--
+  <!--
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -51,8 +46,7 @@
   </script>
     -->
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
@@ -67,135 +61,146 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
+
 <body>
 
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">FlowMap: High-Quality Camera Poses, Intrinsics, and Depth via Gradient Descent</h1>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">FlowMap: High-Quality Camera Poses, Intrinsics, and Depth via
+              Gradient Descent</h1>
           </div>
         </div>
       </div>
     </div>
+    </div>
+  </section>
+
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <p style="  text-align: center; ">Here we show Gaussian Splats trained with our poses, intrinsics, and dense
+          depths on popular scenes:</p>
+        <br>
+        <div id="results-carousel" class="carousel results-carousel">
+
+
+          <div class="item item-coffee">
+            <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/renders_manual/refactor_hydrant_splat_both.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-toby">
+            <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/renders_manual/refactor_bonsai_splat_both.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-coffee">
+            <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/renders_manual/refactor_caterpillar_splat_both.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-mask">
+            <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/renders_manual/refactor_horns_splat_both.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/renders_manual/refactor_bench_splat_both.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-toby">
+            <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/renders_manual/refactor_kitchen_splat_both.mp4" type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <br>
+  <br>
+  <br>
+  <div class="columns is-centered has-text-centered">
+    <img src="static/images/highlevel_yoda.png" style="height:320px;" />
   </div>
-</section>
-
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-    <p style="  text-align: center; ">Here we show Gaussian Splats trained with our poses, intrinsics, and dense depths on popular scenes:</p>
-    <br>
-      <div id="results-carousel" class="carousel results-carousel">
-        
-        
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/renders_manual/refactor_hydrant_splat_both.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/renders_manual/refactor_bonsai_splat_both.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/renders_manual/refactor_caterpillar_splat_both.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/renders_manual/refactor_horns_splat_both.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/renders_manual/refactor_bench_splat_both.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/renders_manual/refactor_kitchen_splat_both.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-      </div>
-    </div>
-        
+  <br>
+  <div class="columns is-centered has-text-centered">
+    <video poster="" id="steve" autoplay controls muted loop playsinline height="320px" style="height:320px;">
+      <source src="./static/videos/cropped_hydrant2.mp4" type="video/mp4" style="height:320px;">
+    </video>
   </div>
-</section>
-
-<br>
-<br>
-<br>
-<div class="columns is-centered has-text-centered">
-<img src="static/images/highlevel_yoda.png"  style="height:320px;"/>
-</div>
-<br>
-<div class="columns is-centered has-text-centered">
-<video poster="" id="steve" autoplay controls muted loop playsinline height="320px" style="height:320px;"> <source src="./static/videos/cropped_hydrant2.mp4" type="video/mp4" style="height:320px;"> </video>
-</div>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-This paper introduces FlowMap, an end-to-end differentiable method that solves for precise camera poses, camera intrinsics, and per-frame dense depth of a video sequence.  Our method performs per-video gradient-descent minimization of a simple least-squares objective that compares the optical flow induced by depth, intrinsics, and poses against correspondences obtained via off-the-shelf optical flow and point tracking.  Alongside the use of point tracks to encourage long-term geometric consistency, we introduce a differentiable re-parameterization of depth, intrinsics, and pose that is amenable to first-order optimization.  We empirically show that camera parameters and dense depth recovered by our method enable photo-realistic novel view synthesis on 360° trajectories using Gaussian Splatting.  Our method not only far outperforms prior gradient-descent based bundle adjustment methods, but surprisingly performs on par with COLMAP, the state-of-the-art SfM method, on the downstream task of 360° novel view synthesis - even though our method is purely gradient-descent based, fully differentiable, and presents a complete departure from conventional SfM.  Our result opens the door to the self-supervised training of neural networks that perform camera parameter estimation, 3D reconstruction, and novel view synthesis.
-          </p>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              This paper introduces FlowMap, an end-to-end differentiable method that solves for precise camera poses,
+              camera intrinsics, and per-frame dense depth of a video sequence. Our method performs per-video
+              gradient-descent minimization of a simple least-squares objective that compares the optical flow induced
+              by depth, intrinsics, and poses against correspondences obtained via off-the-shelf optical flow and point
+              tracking. Alongside the use of point tracks to encourage long-term geometric consistency, we introduce a
+              differentiable re-parameterization of depth, intrinsics, and pose that is amenable to first-order
+              optimization. We empirically show that camera parameters and dense depth recovered by our method enable
+              photo-realistic novel view synthesis on 360° trajectories using Gaussian Splatting. Our method not only
+              far outperforms prior gradient-descent based bundle adjustment methods, but surprisingly performs on par
+              with COLMAP, the state-of-the-art SfM method, on the downstream task of 360° novel view synthesis - even
+              though our method is purely gradient-descent based, fully differentiable, and presents a complete
+              departure from conventional SfM. Our result opens the door to the self-supervised training of neural
+              networks that perform camera parameter estimation, 3D reconstruction, and novel view synthesis.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    
-</section>
+
+  </section>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Splats Initialized with our Poses and Geometry</h2>
-        <h2 class="title is-4">(Raw Video → FlowMap → Gaussian Splatting)</h2>
-        <div class="content has-text-justified">
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Splats Initialized with our Poses and Geometry</h2>
+          <h2 class="title is-4">(Raw Video → FlowMap → Gaussian Splatting)</h2>
+          <div class="content has-text-justified">
+          </div>
         </div>
       </div>
-    </div>
-    <div class="columns is-centered has-text-centered">
+      <div class="columns is-centered has-text-centered">
         <!--<div class="column is-four-fifths"> <h1 class="title is-4">Popular Datasets</h1> </div>-->
-    </div>
+      </div>
       <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/popular_grid.mp4" type="video/mp4">
-          </video>
-        </div>
-    <br>
-    <div class="columns is-centered has-text-centered">
+        <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/popular_grid.mp4" type="video/mp4">
+        </video>
+      </div>
+      <br>
+      <div class="columns is-centered has-text-centered">
         <!--<div class="column is-four-fifths"> <h1 class="title is-4">CO3D</h1> </div>-->
-    </div>
+      </div>
       <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/co3d_grid.mp4" type="video/mp4">
-          </video>
-      </div>    
-    <br>
-    <!--<div class="columns is-centered has-text-centered"> <div class="column is-four-fifths"> <h1 class="title is-4">Casual Captures (straight from phone camera)</h1> </div> </div>-->
-</section>
+        <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/co3d_grid.mp4" type="video/mp4">
+        </video>
+      </div>
+      <br>
+      <!--<div class="columns is-centered has-text-centered"> <div class="column is-four-fifths"> <h1 class="title is-4">Casual Captures (straight from phone camera)</h1> </div> </div>-->
+  </section>
 
-<!-- Paper video. 
+  <!-- Paper video. 
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -211,7 +216,7 @@ This paper introduces FlowMap, an end-to-end differentiable method that solves f
 -->
 
 
-<!--
+  <!--
 <section class="section">
   <div class="container is-max-desktop">
 
@@ -227,153 +232,163 @@ This paper introduces FlowMap, an end-to-end differentiable method that solves f
     </div>
   </div>
 -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column ">
-        <h2 class="title is-3">Point Clouds and Cameras from our Method</h2>
-        <div class="content has-text-justified">
-        <img src="static/images/point_clouds_more.png"  style="width:1020px;"/>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column ">
+          <h2 class="title is-3">Point Clouds and Cameras from our Method</h2>
+          <div class="content has-text-justified">
+            <img src="static/images/point_clouds_more.png" style="width:1020px;" />
+          </div>
         </div>
       </div>
-    </div>
-    
-</section>
 
-<section class="section">
-  <div class="container is-max-desktop">
+  </section>
 
-    <h2 class="title is-3">Side-by-Side Reconstructions</h2>
-    <p>
-      We compare test view reconstructions with NoPe-NeRF and DROID-SLAM. Note that both require known intrinsics whereas ours estimates them.  * Requires known intrinsics.
-    </p>
-    <br>
-    <div class="columns is-centered">
+  <section class="section">
+    <div class="container is-max-desktop">
 
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          
-          <img-comparison-slider>
-            <img slot="first" src="static/images/nope_bonsai_marked.png" />
-            <img slot="second" src="static/images/our_bonsai_marked.png" />
-          </img-comparison-slider>
-                    
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
+      <h2 class="title is-3">Side-by-Side Reconstructions</h2>
+      <p>
+        We compare test view reconstructions with NoPe-NeRF and DROID-SLAM. Note that both require known intrinsics
+        whereas ours estimates them. * Requires known intrinsics.
+      </p>
+      <br>
+      <div class="columns is-centered">
 
-      <!-- Matting. -->
-      <div class="column">
-        <div class="columns is-centered">
-          <div class="column content">
+        <!-- Visual Effects. -->
+        <div class="column">
+          <div class="content">
+
             <img-comparison-slider>
-              <img slot="first" src="static/images/droid_bench_marked.png" />
-              <img slot="second" src="static/images/our_bench_marked.png" />
+              <img slot="first" src="static/images/nope_bonsai_marked.png" />
+              <img slot="second" src="static/images/our_bonsai_marked.png" />
             </img-comparison-slider>
 
           </div>
-
         </div>
-      </div>
-      
-    </div>
-  <div class="columns is-centered">
+        <!--/ Visual Effects. -->
 
-      <div class="column">
-        <div class="content">
-          
-          <img-comparison-slider>
-             <img slot="first" src="static/images/colmap_kitchen_marked.png" />
-             <img slot="second" src="static/images/our_kitchen_marked_41.png" />
-          </img-comparison-slider>
-                    
+        <!-- Matting. -->
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <img-comparison-slider>
+                <img slot="first" src="static/images/droid_bench_marked.png" />
+                <img slot="second" src="static/images/our_bench_marked.png" />
+              </img-comparison-slider>
+
+            </div>
+
+          </div>
         </div>
-      </div>
 
-      <div class="column">
-        <div class="columns is-centered">
-          <div class="column content">
+      </div>
+      <div class="columns is-centered">
+
+        <div class="column">
+          <div class="content">
+
             <img-comparison-slider>
-              <img slot="first" src="static/images/gt_flower_marked.png" />
-              <img slot="second" src="static/images/our_flower_marked.png" />
+              <img slot="first" src="static/images/colmap_kitchen_marked.png" />
+              <img slot="second" src="static/images/our_kitchen_marked_41.png" />
             </img-comparison-slider>
 
           </div>
+        </div>
 
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <img-comparison-slider>
+                <img slot="first" src="static/images/gt_flower_marked.png" />
+                <img slot="second" src="static/images/our_flower_marked.png" />
+              </img-comparison-slider>
+
+            </div>
+
+          </div>
         </div>
       </div>
-</div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="container is-max-desktop">
+  <section class="section">
+    <div class="container is-max-desktop">
 
-    <h2 class="title is-3">Gaussian Splats from FlowMap vs COLMAP:   </h2>
-    <p>
-      Note here we fit a smoothened path to the estimated poses from each method and so alignment between the two is imperfect.
-    </p>
+      <h2 class="title is-3">Gaussian Splats from FlowMap vs COLMAP: </h2>
+      <p>
+        Note here we fit a smoothened path to the estimated poses from each method and so alignment between the two is
+        imperfect.
+      </p>
 
-    <br>
-    <div class="columns is-centered">
+      <br>
+      <div class="columns is-centered">
 
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%"> <source src="./static/videos/flowmap_swipes/Bench.mp4" type="video/mp4"> </video>
+        <!-- Visual Effects. -->
+        <div class="column">
+          <div class="content">
+            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/flowmap_swipes/Bench.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="content">
-            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%"> <source src="./static/videos/flowmap_swipes/Kitchen.mp4" type="video/mp4"> </video>
+        <div class="column">
+          <div class="content">
+            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/flowmap_swipes/Kitchen.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
+
       </div>
-      
+      <div class="columns is-centered">
+
+        <!-- Visual Effects. -->
+        <div class="column">
+          <div class="content">
+            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/flowmap_swipes/Caterpillar.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content">
+            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/flowmap_swipes/Hydrant.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+      </div>
+
     </div>
-  <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%"> <source src="./static/videos/flowmap_swipes/Caterpillar.mp4" type="video/mp4"> </video>
-        </div>
-      </div>
-      <div class="column">
-        <div class="content">
-            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%"> <source src="./static/videos/flowmap_swipes/Hydrant.mp4" type="video/mp4"> </video>
-        </div>
-      </div>
-      
-    </div>
-
-</div>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
+    <section class="section">
+      <div class="container is-max-desktop">
 
-    <h2 class="title is-3">Pose Plots</h2>
-    <p>
-      Here we show pose plots and estimated depth maps for popular scenes.
-    </p>
-    <br>
-      <div class="item item-steve">
+        <h2 class="title is-3">Pose Plots</h2>
+        <p>
+          Here we show pose plots and estimated depth maps for popular scenes.
+        </p>
+        <br>
+        <div class="item item-steve">
           <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
             <source src="./static/videos/pose_plots.mp4" type="video/mp4">
           </video>
+        </div>
+
+        <br>
+
+        <!--<div class="columns is-centered has-text-centered"> <img src="static/images/flowmap_results_dense_just_poses.png"  style="width:950px;"/> </div>-->
+
       </div>
 
-    <br>
 
-  <!--<div class="columns is-centered has-text-centered"> <img src="static/images/flowmap_results_dense_just_poses.png"  style="width:950px;"/> </div>-->
-    
-  </div>
+      <!--/ Matting. -->
 
-
-    <!--/ Matting. -->
-
-<!--
+      <!--
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
@@ -382,18 +397,18 @@ This paper introduces FlowMap, an end-to-end differentiable method that solves f
 </section>
 -->
 
-<br>
-<br>
-<br>
-<br>
+      <br>
+      <br>
+      <br>
+      <br>
 
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-          <p> We thank the authors of Nerfies that kindly open sourced the template of this website.  </p>
-    </div>
-  </div>
-</footer>
+      <footer class="footer">
+        <div class="container">
+          <div class="columns is-centered">
+            <p> We thank the authors of Nerfies that kindly open sourced the template of this website. </p>
+          </div>
+        </div>
+      </footer>
 </body>
 
 </html>
