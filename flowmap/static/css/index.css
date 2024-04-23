@@ -23,11 +23,6 @@ body {
   padding-bottom: 3rem;
 }
 
-.teaser {
-  font-family: 'Google Sans', sans-serif;
-}
-
-
 .publication-title {
 }
 
@@ -45,14 +40,6 @@ body {
 }
 
 .publication-header .hero-body {
-}
-
-.publication-title {
-    font-family: 'Google Sans', sans-serif;
-}
-
-.publication-authors {
-    font-family: 'Google Sans', sans-serif;
 }
 
 .publication-venue {
@@ -111,20 +98,14 @@ body {
 }
 
 .results-carousel {
-  overflow: hidden;
-}
-
-.results-carousel .item {
-  margin: 5px;
-  overflow: hidden;
-  border: 1px solid #bbb;
-  border-radius: 10px;
-  padding: 0;
-  font-size: 0;
+  /* overflow: hidden; */
+  /* height: 400px; */
 }
 
 .results-carousel video {
-  margin: 0;
+  width: 682px;
+  height: 224px;
+  margin: 10px;
 }
 
 
