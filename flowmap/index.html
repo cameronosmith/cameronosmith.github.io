@@ -3,19 +3,22 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="FlowMap uses flow- and tracking-based losses to produce high-quality camera poses, intrinsics, and depth via gradient descent.">
+  <meta name="description"
+    content="FlowMap uses flow- and tracking-based losses to produce high-quality camera poses, intrinsics, and depth via gradient descent.">
   <meta name="og:title" content="FlowMap: High-Quality Camera Poses, Intrinsics, and Depth via Gradient Descent">
-  <meta name="og:description" content="FlowMap uses flow- and tracking-based losses to produce high-quality camera poses, intrinsics, and depth via gradient descent.">
+  <meta name="og:description"
+    content="FlowMap uses flow- and tracking-based losses to produce high-quality camera poses, intrinsics, and depth via gradient descent.">
   <meta property="og:url" content="https://cameronosmith.github.io/flowmap" />
   <meta property="og:image" content="https://cameronosmith.github.io/flowmap/static/images/banner.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
   <meta name="twitter:title" content="FlowMap: High-Quality Camera Poses, Intrinsics, and Depth via Gradient Descent">
-  <meta name="twitter:description" content="FlowMap uses flow- and tracking-based losses to produce high-quality camera poses, intrinsics, and depth via gradient descent.">
+  <meta name="twitter:description"
+    content="FlowMap uses flow- and tracking-based losses to produce high-quality camera poses, intrinsics, and depth via gradient descent.">
   <meta name="twitter:image" content="https://cameronosmith.github.io/flowmap/static/images/banner.png">
   <meta name="twitter:card" content="summary_large_image">
-  
+
   <meta name="keywords" content="NeRF, SfM, novel view synthesis, 3D Gaussian Splatting">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -89,14 +92,20 @@
               </a>
             </div>
             <div class="mt-6">
-              <video controls autoplay muted loop playsinline height="500px" style="height:500px; border: 1px solid #dddddd;">
-                <source src="./static/videos/overview_video.mp4" type="video/mp4" style="height:500px;">
+              <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;">
+                <source src="./static/videos/overview_video.mp4" type="video/mp4" style="width:100%;">
               </video>
             </div>
           </div>
         </div>
+        <div class="columns">
+          <div class="column">
+            <div class="is-size-5 mt-3"><span class="has-text-weight-bold">TL;DR:</span> FlowMap is the first
+              self-supervised, end-to-end differentiable SfM method that provides COLMAP-level accuracy for 360° scenes.
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   </section>
 
@@ -141,7 +150,8 @@
 
             <!-- Point Clouds -->
             <h2 class="title mt-6 is-4">Point Clouds from FlowMap</h2>
-            <div class="subtitle is-5">The high-quality camera poses, camera intrinsics, and depths FlowMap predicts can be combined to create well-aligned, dense point clouds.</div>
+            <div class="subtitle is-5">The high-quality camera poses, camera intrinsics, and depths FlowMap predicts can
+              be combined to create well-aligned, dense point clouds.</div>
             <img src="static/images/point_clouds_more.png" style="width: 100%" />
 
             <!-- Convergence Video -->
@@ -155,7 +165,8 @@
 
             <!-- Side-by-side -->
             <h2 class="title mt-6 is-4">Downstream 3D Gaussian Splatting</h2>
-            <div class="subtitle is-5">FlowMap's outputs can be used to train high-quality 3D Gaussian Splatting scenes. Reconstruction quality significantly beats NoPE-NeRF and DROID-SLAM and matches COLMAP.</div>
+            <div class="subtitle is-5">FlowMap's outputs can be used to train high-quality 3D Gaussian Splatting scenes.
+              Reconstruction quality significantly beats NoPE-NeRF and DROID-SLAM and matches COLMAP.</div>
             <div>Methods marked with an asterisk (*) require ground-truth intrinsics.</div>
           </div>
         </div>
@@ -201,7 +212,8 @@
         </div>
         <div class="columns">
           <div class="column">
-            Note that because we fit a smooth trajectory to each method's estimated poses, the alignment in the videos below is imperfect.
+            Note that because we fit a smooth trajectory to each method's estimated poses, the alignment in the videos
+            below is imperfect.
           </div>
         </div>
         <div class="columns">
@@ -247,7 +259,8 @@
 
             <!-- Gaussian Splatting Videos -->
             <h2 class="title mt-6 is-4">More Downstream Splatting Results</h2>
-            <div class="subtitle is-5">FlowMap's outputs allow Gaussian Splatting to produce crisp features and depths.</div>
+            <div class="subtitle is-5">FlowMap's outputs allow Gaussian Splatting to produce crisp features and depths.
+            </div>
             <div class="mt-3">
               <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
                 <source src="./static/videos/popular_grid.mp4" type="video/mp4">
