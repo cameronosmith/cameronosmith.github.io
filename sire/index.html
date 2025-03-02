@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!--
+  <meta name="description"
+    content="FlowMap uses flow- and tracking-based losses to produce high-quality camera poses, intrinsics, and depth via gradient descent.">
+  <meta name="og:title" content="FlowMap: High-Quality Camera Poses, Intrinsics, and Depth via Gradient Descent">
+  <meta name="og:description"
+    content="FlowMap uses flow- and tracking-based losses to produce high-quality camera poses, intrinsics, and depth via gradient descent.">
+  <meta property="og:url" content="https://cameronosmith.github.io/flowmap" />
+  <meta property="og:image" content="https://cameronosmith.github.io/flowmap/static/images/banner.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:title" content="FlowMap: High-Quality Camera Poses, Intrinsics, and Depth via Gradient Descent">
+  <meta name="twitter:description"
+    content="FlowMap uses flow- and tracking-based losses to produce high-quality camera poses, intrinsics, and depth via gradient descent.">
+  <meta name="twitter:image" content="https://cameronosmith.github.io/flowmap/static/images/banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  -->
+
+  <meta name="keywords" content="NeRF, SfM, novel view synthesis, 3D Gaussian Splatting">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SIRE</title>
+  <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css" />
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+  <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.8.*/dist/index.js'></script>
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero theme-light" data-theme="light">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title">
+            👑 SIRE: SE(3) Intrinsic Rigidity Embeddings
+            </h1>
+            <div class="is-size-5">
+              <a href="https://cameronosmith.github.io/">Cameron Smith</a>,
+              <a href="https://vitorguizilini.github.io/">Vitor Guizilini</a>,
+              and <a href="https://yuewang.xyz/">Yue Wang</a>
+            </div>
+            <div class="is-size-5">
+              University of Southern California
+            </div>
+            <!--
+            <div class="d-flex flex-row mt-4">
+              <a href="https://arxiv.org/abs/2404.15259" class="button is-dark">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+                </span>
+                <span>Paper</span>
+              </a>
+              <a href="https://github.com/dcharatan/flowmap" class="button is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+              <a href="https://drive.google.com/drive/folders/1PqByQSfzyLjfdZZDwn6RXIECso7WB9IY?usp=drive_link"
+                class="button is-dark">
+                <span class="icon">
+                  <i class="fas fa-database"></i>
+                </span>
+                <span>Datasets and Initialization</span>
+              </a>
+            </div>
+            -->
+            <div class="mt-6">
+              <img controls autoplay muted loop playsinline style="width:80%; " src="img/overview.png"/>
+            </div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="is-size-5 mt-3"><span class="has-text-weight-bold">TL;DR:<br></span> 
+              •Discovery of object embeddings via intrinsics rigidity embeddings and simple 4D reconstruction objective.
+              <br>
+              •It can be trained using just RGB videos and off-the-shelf 2D point trackers, either on a single video for per-scene 4D reconstruction, or on a dataset of videos to learn generalizable priors over geometry and rigidity.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light" data-theme="light">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns">
+        <div class="column">
+          <h2 class="title is-4">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Motion serves as a powerful cue in human perception, helping to organize the physical world into distinct entities by separating independently moving surfaces. We introduce SIRE, a method for learning intrinsic rigidity embeddings from video, capturing the underlying motion structure of dy- namic scenes. Our approach softly groups pixels into rigid components by learning a feature space where points be- longing to the same rigid object share similar embeddings.  We achieve this by extending the traditional static 3D scene reconstruction to also include dynamic scene modeling, via a simple yet effective 4D reconstruction loss. By lifting 2D point tracks into SE(3) rigid trajectories, and enforcing consistency with their 2D re-projections, our method learns compelling rigidity-based representations without explicit supervision. Crucially, our framework is fully end-to-end differentiable and can be optimized either on video datasets to learn generalizable image priors, or surprisingly even on a single video to capture scene-specific structure – high- lighting strong data efficiency. We demonstrate the effec- tiveness of our rigidity embeddings and 4D reconstruction across multiple settings, including self-supervised depth es- timation, SE(3) rigid motion estimation, and object segmen- tation. Our findings suggest that our simple formulation can pave the way towards learning self-supervised learning of priors over geometry and object rigidities from large-scale video data.
+            </p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="hero theme-light" data-theme="light">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns">
+          <div class="column">
+            <h2 class="title mt-6 is-4">Overview</h2>
+            <div class="mt-6"> <img src="img/selfsupresults_small.png"/> </div>
+            <h2 class="title mt-6 is-4">Per-Track Self-Attention Grids Interpreted as Rigidity Weights</h2>
+            <div class="subtitle is-5">Notice how our model discovers semantically independent rigid bodies.</div>
+            <div class="mt-6"> <img src="img/aff_grid.png"/> </div>
+
+            <!-- Point Clouds -->
+            <h2 class="title mt-6 is-4">4D point clouds predicted by our model</h2>
+            <div class="subtitle is-5">Top two use self-supervised geometry and bottom two use off-the-shelf depth</div>
+            <div class="columns">
+            <div class="column">
+              <div class="content">
+              <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;"> <source src="./vid_screengrabs/dog1_vid.mov" type="video/mp4" style="width:100%;"> </video>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+              <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;"> <source src="./vid_screengrabs/dog_vid2.mov" type="video/mp4" style="width:100%;"> </video>
+              </div>
+            </div>
+          </div>
+            <div class="columns">
+            <div class="column">
+              <div class="content">
+              <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;"> <source src="./vid_screengrabs/camel_vid.mov" type="video/mp4" style="width:100%;"> </video>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+              <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;"> <source src="./vid_screengrabs/bear_vid.mov" type="video/mp4" style="width:100%;"> </video>
+              </div>
+            </div>
+          </div>
+
+          
+  <footer class="footer">
+        <p> We thank the authors of Nerfies that kindly open sourced the template of this website.</p>
+  </footer>
+</body>
+
+</html>
