@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Pixel Aligned Robot Actions (PARA)">
+  <meta name="og:title" content="Pixel Aligned Robot Actions (PARA) are more Data-Efficient and Robust to New Viewpoints and Environments">
+  <meta name="og:description"
+    content="Pixel Aligned Robot Actions (PARA) are More Data-Efficient and Robust to New Viewpoints and Environments.">
+  <meta property="og:url" content="https://cameronosmith.github.io/para" />
+  <meta property="og:image" content="https://cameronosmith.github.io/para/static/images/PARA_Overview_comparison_trainingdata.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:title" content="Pixel Aligned Robot Actions (PARA) are more Data-Efficient and Robust to New Viewpoints and Environments">
+  <meta name="twitter:description"
+    content="Pixel Aligned Robot Actions (PARA) are more Data-Efficient and Robust to new Viewpoints and Environments.">
+  <meta name="twitter:image" content="https://cameronosmith.github.io/para/static/images/PARA_Overview_comparison_trainingdata.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="keywords" content="robot learning, imitation learning, pixel selection, data-efficient, viewpoint robustness">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Pixel Aligned Robot Actions (PARA)</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero theme-light" data-theme="light">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title">
+              Pixel Aligned Robot Actions (PARA)
+            </h1>
+            <p class="subtitle is-4 has-text-weight-normal mt-2 para-subheader">
+              Are More Data-Efficient and Robust to New Viewpoints and Environments
+            </p>
+
+            <div class="is-size-5 publication-authors mt-3">
+            </div>
+            <div class="buttons is-centered mt-4">
+              <a href="#" class="button is-dark">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>Paper</span>
+              </a>
+              <a href="#" class="button is-dark">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Overview images: wider container so images can be ~1.5x, autoresize to fit -->
+      <div class="para-overview-wrapper">
+        <div class="columns mt-6 is-variable is-2 para-overview-columns">
+          <div class="column">
+            <h2 class="title is-4 has-text-centered">Project Overview</h2>
+            <img src="./static/images/PARA_Overview_comparison_trainingdata.png" alt="PARA project overview" class="para-overview-img" />
+          </div>
+          <div class="column">
+            <h2 class="title is-4 has-text-centered">Method Overview</h2>
+            <img src="./static/images/PARA_Method_Overview_ray.png" alt="PARA method overview" class="para-overview-img" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison section: wide container (outside narrow container) -->
+      <div class="para-comparison-wrapper">
+        <!-- Comparison table header -->
+        <div class="para-comparison-header columns is-variable is-1 mt-6 mb-2">
+          <div class="column has-text-centered"><strong>Ours (PARA)</strong></div>
+          <div class="column has-text-centered"><strong>ACT</strong></div>
+          <div class="column has-text-centered"><strong>Motion Tracks</strong></div>
+        </div>
+
+        <!-- Row 1: Training Viewpoint with 40 Demonstrations -->
+        <h2 class="title is-5 mt-6 mb-3">Results on Policy Trained on 40 Demonstrations (Same Viewpoint and Environment) (8x Speed)</h2>
+        <h3 class="is-size-6 has-text-weight-normal para-subheader"></h3>
+        <br>
+
+        <div class="columns is-variable is-1 para-comparison-row">
+          <div class="column">
+            <p class="para-video-stat">94% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/pickplace_exp1_vids/ours_20episodes_pickplace_8x.mov"></video>
+            </div>
+          </div>
+          <div class="column">
+            <p class="para-video-stat">0% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/pickplace_exp1_vids/act_baseline_exp_20ep_pickplace_8x.mov"></video>
+            </div>
+          </div>
+          <div class="column">
+            <p class="para-video-stat">0% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/pickplace_exp1_vids/motiontracks_20ep_baseline_8x.mov"></video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Novel Viewpoint 1 -->
+        <h2 class="title is-5 mt-6 mb-3">Novel Viewpoint 1 Zero-Shot</h2>
+        <div class="columns is-variable is-1 para-comparison-row">
+          <div class="column">
+            <p class="para-video-stat">39% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/pickplace_exp1_vids/ours_newviewpoint_15ep_8x.mov"></video>
+            </div>
+          </div>
+          <div class="column">
+            <p class="para-video-stat">0% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/pickplace_exp1_vids/oodview_act_baseline_8x.mov"></video>
+            </div>
+          </div>
+          <div class="column">
+            <p class="para-video-stat">0% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/pickplace_exp1_vids/oodview_motion_tracks_8x.mov"></video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Novel Viewpoint 2 -->
+        <h2 class="title is-5 mt-6 mb-3">Novel Viewpoint with 5 Fine-tuning Episodes</h2>
+        <div class="columns is-variable is-1 para-comparison-row">
+          <div class="column">
+            <p class="para-video-stat">87% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/pickplace_exp1_vids/ood_ft_ours_8x.mov"></video>
+            </div>
+          </div>
+          <div class="column">
+            <p class="para-video-stat">0% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/pickplace_exp1_vids/ood_ft_act_baseline_8x.mov"></video>
+            </div>
+          </div>
+          <div class="column">
+            <p class="para-video-stat">0% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/pickplace_exp1_vids/ood_ft_motiontracks_baseline_8x.mov"></video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 4: Novel Environment 1 -->
+        <h2 class="title is-5 mt-6 mb-3">Novel Environment 1</h2>
+        <div class="columns is-variable is-1 para-comparison-row">
+          <div class="column">
+            <p class="para-video-stat">-% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/novel_env1_ours.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+          <div class="column">
+            <p class="para-video-stat">-% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/novel_env1_act.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+          <div class="column">
+            <p class="para-video-stat">-% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/novel_env1_motion_tracks.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 5: Novel Environment 2 -->
+        <h2 class="title is-5 mt-6 mb-3">Novel Environment 2</h2>
+        <div class="columns is-variable is-1 para-comparison-row">
+          <div class="column">
+            <p class="para-video-stat">—% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/novel_env2_ours.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+          <div class="column">
+            <p class="para-video-stat">—% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/novel_env2_act.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+          <div class="column">
+            <p class="para-video-stat">—% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/novel_env2_motion_tracks.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other Tasks -->
+        <h2 class="title is-4 mt-6 mb-3">Other Tasks:</h2>
+
+        <!-- Row: Wiping Table -->
+        <h2 class="title is-5 mt-6 mb-3">Wiping Table</h2>
+        <div class="columns is-variable is-1 para-comparison-row">
+          <div class="column">
+            <p class="para-video-stat">—% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/wiping_table_ours.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+          <div class="column">
+            <p class="para-video-stat">—% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/wiping_table_act.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+          <div class="column">
+            <p class="para-video-stat">—% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/wiping_table_motion_tracks.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row: Fold Towel -->
+        <h2 class="title is-5 mt-6 mb-3">Fold Towel</h2>
+        <div class="columns is-variable is-1 para-comparison-row">
+          <div class="column">
+            <p class="para-video-stat">—% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/fold_towel_ours.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+          <div class="column">
+            <p class="para-video-stat">—% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/fold_towel_act.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+          <div class="column">
+            <p class="para-video-stat">—% success</p>
+            <div class="para-cell para-cell-video">
+              <video controls autoplay muted loop playsinline><source src="./static/videos/fold_towel_motion_tracks.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
