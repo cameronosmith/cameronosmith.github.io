@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="FlowMap uses flow- and tracking-based losses to produce high-quality camera poses, intrinsics, and depth via gradient descent.">
+  <meta name="og:title" content="FlowMap: High-Quality Camera Poses, Intrinsics, and Depth via Gradient Descent">
+  <meta name="og:description"
+    content="FlowMap uses flow- and tracking-based losses to produce high-quality camera poses, intrinsics, and depth via gradient descent.">
+  <meta property="og:url" content="https://cameronosmith.github.io/flowmap" />
+  <meta property="og:image" content="https://cameronosmith.github.io/flowmap/static/images/banner.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:title" content="FlowMap: High-Quality Camera Poses, Intrinsics, and Depth via Gradient Descent">
+  <meta name="twitter:description"
+    content="FlowMap uses flow- and tracking-based losses to produce high-quality camera poses, intrinsics, and depth via gradient descent.">
+  <meta name="twitter:image" content="https://cameronosmith.github.io/flowmap/static/images/banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="keywords" content="NeRF, SfM, novel view synthesis, 3D Gaussian Splatting">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>FlowMap</title>
+  <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css" />
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+  <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.8.*/dist/index.js'></script>
+
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero theme-light" data-theme="light">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title">
+              FlowMap: High-Quality Camera Poses, Intrinsics, and Depth via
+              Gradient Descent
+            </h1>
+            <div class="is-size-5">
+              <a href="https://cameronosmith.github.io/">Cameron Smith*</a>,
+              <a href="http://davidcharatan.com/">David Charatan*</a>,
+              <a href="https://ayushtewari.com/">Ayush Tewari</a>,
+              and <a href="https://www.vincentsitzmann.com/">Vincent Sitzmann</a>
+            </div>
+            <div class="is-size-5">
+              Massachusetts Institute of Technology
+            </div>
+            <div class="mt-2">* denotes joint first authorship.</div>
+            <div class="d-flex flex-row mt-4">
+              <a href="https://arxiv.org/abs/2404.15259" class="button is-dark">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+                </span>
+                <span>Paper</span>
+              </a>
+              <a href="https://github.com/dcharatan/flowmap" class="button is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+              <a href="https://drive.google.com/drive/folders/1PqByQSfzyLjfdZZDwn6RXIECso7WB9IY?usp=drive_link"
+                class="button is-dark">
+                <span class="icon">
+                  <i class="fas fa-database"></i>
+                </span>
+                <span>Datasets and Initialization</span>
+              </a>
+            </div>
+            <div class="mt-6">
+              <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;">
+                <source src="./static/videos/overview_video.mp4" type="video/mp4" style="width:100%;">
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="is-size-5 mt-3"><span class="has-text-weight-bold">TL;DR:</span> FlowMap is the first
+              self-supervised, end-to-end differentiable SfM method that provides COLMAP-level accuracy for 360° scenes.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light" data-theme="light">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns">
+        <div class="column">
+          <h2 class="title is-4">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              This paper introduces FlowMap, an end-to-end differentiable method that solves for precise camera poses,
+              camera intrinsics, and per-frame dense depth of a video sequence. Our method performs per-video
+              gradient-descent minimization of a simple least-squares objective that compares the optical flow induced
+              by depth, intrinsics, and poses against correspondences obtained via off-the-shelf optical flow and point
+              tracking. Alongside the use of point tracks to encourage long-term geometric consistency, we introduce a
+              differentiable re-parameterization of depth, intrinsics, and pose that is amenable to first-order
+              optimization. We empirically show that camera parameters and dense depth recovered by our method enable
+              photo-realistic novel view synthesis on 360° trajectories using Gaussian Splatting. Our method not only
+              far outperforms prior gradient-descent based bundle adjustment methods, but surprisingly performs on par
+              with COLMAP, the state-of-the-art SfM method, on the downstream task of 360° novel view synthesis - even
+              though our method is purely gradient-descent based, fully differentiable, and presents a complete
+              departure from conventional SfM. Our result opens the door to the self-supervised training of neural
+              networks that perform camera parameter estimation, 3D reconstruction, and novel view synthesis.
+            </p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+
+
+  <section class="hero theme-light" data-theme="light">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns">
+          <div class="column">
+            <h2 class="title mt-6 is-4">Overview</h2>
+            <div class="mt-6">
+              <img src="static/images/highlevel_yoda.png" />
+            </div>
+
+            <!-- Point Clouds -->
+            <h2 class="title mt-6 is-4">Point Clouds from FlowMap</h2>
+            <div class="subtitle is-5">The high-quality camera poses, camera intrinsics, and depths FlowMap predicts can
+              be combined to create well-aligned, dense point clouds.</div>
+            <img src="static/images/point_clouds_more.png" style="width: 100%" />
+
+            <!-- Convergence Video -->
+            <h2 class="title mt-6 is-4">Optimization Timelapse</h2>
+            <div class="subtitle is-5">FlowMap is trained end-to-end using gradient descent.</div>
+            <div class="is-flex is-justify-content-center is-align-content-center">
+              <video autoplay muted loop playsinline height="320px" style="height:320px;">
+                <source src="./static/videos/cropped_hydrant2.mp4" type="video/mp4" style="height:320px;">
+              </video>
+            </div>
+
+            <!-- Side-by-side -->
+            <h2 class="title mt-6 is-4">Downstream 3D Gaussian Splatting</h2>
+            <div class="subtitle is-5">FlowMap's outputs can be used to train high-quality 3D Gaussian Splatting scenes.
+              Reconstruction quality significantly beats NoPE-NeRF and DROID-SLAM and matches COLMAP.</div>
+            <div>Methods marked with an asterisk (*) require ground-truth intrinsics.</div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="content">
+              <img-comparison-slider>
+                <img slot="first" src="static/images/nope_bonsai_marked.png" />
+                <img slot="second" src="static/images/our_bonsai_marked.png" />
+              </img-comparison-slider>
+            </div>
+          </div>
+          <div class="column">
+            <div class="columns is-centered">
+              <div class="column content">
+                <img-comparison-slider>
+                  <img slot="first" src="static/images/droid_bench_marked.png" />
+                  <img slot="second" src="static/images/our_bench_marked.png" />
+                </img-comparison-slider>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="content">
+              <img-comparison-slider>
+                <img slot="first" src="static/images/colmap_kitchen_marked.png" />
+                <img slot="second" src="static/images/our_kitchen_marked_41.png" />
+              </img-comparison-slider>
+            </div>
+          </div>
+          <div class="column">
+            <div class="columns is-centered">
+              <div class="column content">
+                <img-comparison-slider>
+                  <img slot="first" src="static/images/gt_flower_marked.png" />
+                  <img slot="second" src="static/images/our_flower_marked.png" />
+                </img-comparison-slider>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            Note that because we fit a smooth trajectory to each method's estimated poses, the alignment in the videos
+            below is imperfect.
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="content">
+              <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/flowmap_swipes/Bench.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="column">
+            <div class="content">
+              <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/flowmap_swipes/Kitchen.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="content">
+              <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/flowmap_swipes/Caterpillar.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="column">
+            <div class="content">
+              <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/flowmap_swipes/Hydrant.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <!-- Pose Plots -->
+            <h2 class="title mt-6 is-4">Pose Plots</h2>
+            <div class="subtitle is-5">Raw poses and depths from FlowMap are shown below.</div>
+            <video autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/pose_plots.mp4" type="video/mp4">
+            </video>
+
+            <!-- Gaussian Splatting Videos -->
+            <h2 class="title mt-6 is-4">More Downstream Splatting Results</h2>
+            <div class="subtitle is-5">FlowMap's outputs allow Gaussian Splatting to produce crisp features and depths.
+            </div>
+            <div class="mt-3">
+              <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/popular_grid.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="mt-3">
+              <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/co3d_grid.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <p> We thank the authors of Nerfies that kindly open sourced the template of this website.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
