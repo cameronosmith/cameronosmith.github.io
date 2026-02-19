@@ -1,0 +1,1937 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowMap++ Visualizations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .video-grid {
+            display: grid;
+            grid-template-columns: auto repeat(5, 1fr); /* Label column + 4 video columns */
+            gap: 20px;
+            align-items: center;
+        }
+        .video-cell {
+            text-align: center;
+        }
+        .video-row-label {
+            writing-mode: vertical-rl;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+        video {
+            width: 100%;
+            height: 200px;
+            #height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .video-text {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">FlowMap++ Visualizations</h1>
+        <div class="video-grid">
+
+            <!-- Scene hike -->
+            <div class="video-row-label">hike</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/hike/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/hike/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/hike/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/hike/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/hike/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene mallard-fly -->
+            <div class="video-row-label">mallard-fly</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/mallard-fly/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/mallard-fly/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/mallard-fly/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/mallard-fly/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/mallard-fly/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene dance-jump -->
+            <div class="video-row-label">dance-jump</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dance-jump/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dance-jump/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dance-jump/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dance-jump/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dance-jump/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene mallard-water -->
+            <div class="video-row-label">mallard-water</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/mallard-water/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/mallard-water/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/mallard-water/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/mallard-water/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/mallard-water/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene cows -->
+            <div class="video-row-label">cows</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/cows/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/cows/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/cows/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/cows/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/cows/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene dance-twirl -->
+            <div class="video-row-label">dance-twirl</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dance-twirl/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dance-twirl/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dance-twirl/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dance-twirl/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dance-twirl/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene soapbox -->
+            <div class="video-row-label">soapbox</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/soapbox/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/soapbox/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/soapbox/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/soapbox/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/soapbox/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene stroller -->
+            <div class="video-row-label">stroller</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/stroller/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/stroller/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/stroller/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/stroller/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/stroller/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene dog -->
+            <div class="video-row-label">dog</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dog/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dog/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dog/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dog/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dog/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene lucia -->
+            <div class="video-row-label">lucia</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/lucia/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/lucia/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/lucia/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/lucia/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/lucia/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene bear -->
+            <div class="video-row-label">bear</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bear/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bear/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bear/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bear/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bear/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene robotics -->
+            <div class="video-row-label">robotics</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/robotics/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/robotics/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/robotics/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/robotics/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/robotics/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene horsejump-high -->
+            <div class="video-row-label">horsejump-high</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/horsejump-high/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/horsejump-high/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/horsejump-high/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/horsejump-high/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/horsejump-high/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene swing -->
+            <div class="video-row-label">swing</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/swing/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/swing/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/swing/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/swing/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/swing/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene kite-walk -->
+            <div class="video-row-label">kite-walk</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/kite-walk/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/kite-walk/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/kite-walk/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/kite-walk/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/kite-walk/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene boat -->
+            <div class="video-row-label">boat</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/boat/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/boat/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/boat/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/boat/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/boat/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene rollerblade -->
+            <div class="video-row-label">rollerblade</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/rollerblade/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/rollerblade/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/rollerblade/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/rollerblade/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/rollerblade/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene horsejump-low -->
+            <div class="video-row-label">horsejump-low</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/horsejump-low/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/horsejump-low/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/horsejump-low/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/horsejump-low/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/horsejump-low/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene camel -->
+            <div class="video-row-label">camel</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/camel/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/camel/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/camel/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/camel/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/camel/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene drift-chicane -->
+            <div class="video-row-label">drift-chicane</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/drift-chicane/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/drift-chicane/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/drift-chicane/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/drift-chicane/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/drift-chicane/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene motocross-bumps -->
+            <div class="video-row-label">motocross-bumps</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/motocross-bumps/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/motocross-bumps/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/motocross-bumps/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/motocross-bumps/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/motocross-bumps/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene parkour -->
+            <div class="video-row-label">parkour</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/parkour/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/parkour/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/parkour/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/parkour/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/parkour/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene bus -->
+            <div class="video-row-label">bus</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bus/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bus/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bus/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bus/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bus/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene motorbike -->
+            <div class="video-row-label">motorbike</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/motorbike/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/motorbike/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/motorbike/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/motorbike/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/motorbike/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene goat -->
+            <div class="video-row-label">goat</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/goat/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/goat/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/goat/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/goat/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/goat/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene breakdance -->
+            <div class="video-row-label">breakdance</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/breakdance/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/breakdance/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/breakdance/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/breakdance/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/breakdance/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene car-roundabout -->
+            <div class="video-row-label">car-roundabout</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/car-roundabout/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/car-roundabout/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/car-roundabout/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/car-roundabout/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/car-roundabout/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene scooter-black -->
+            <div class="video-row-label">scooter-black</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/scooter-black/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/scooter-black/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/scooter-black/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/scooter-black/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/scooter-black/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene soccerball -->
+            <div class="video-row-label">soccerball</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/soccerball/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/soccerball/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/soccerball/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/soccerball/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/soccerball/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene scooter-gray -->
+            <div class="video-row-label">scooter-gray</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/scooter-gray/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/scooter-gray/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/scooter-gray/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/scooter-gray/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/scooter-gray/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene drift-turn -->
+            <div class="video-row-label">drift-turn</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/drift-turn/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/drift-turn/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/drift-turn/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/drift-turn/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/drift-turn/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene breakdance-flare -->
+            <div class="video-row-label">breakdance-flare</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/breakdance-flare/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/breakdance-flare/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/breakdance-flare/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/breakdance-flare/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/breakdance-flare/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene dog-agility -->
+            <div class="video-row-label">dog-agility</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dog-agility/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dog-agility/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dog-agility/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dog-agility/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/dog-agility/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene libby -->
+            <div class="video-row-label">libby</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/libby/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/libby/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/libby/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/libby/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/libby/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene surf -->
+            <div class="video-row-label">surf</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/surf/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/surf/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/surf/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/surf/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/surf/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene hockey -->
+            <div class="video-row-label">hockey</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/hockey/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/hockey/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/hockey/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/hockey/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/hockey/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene drift-straight -->
+            <div class="video-row-label">drift-straight</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/drift-straight/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/drift-straight/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/drift-straight/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/drift-straight/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/drift-straight/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene train -->
+            <div class="video-row-label">train</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/train/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/train/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/train/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/train/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/train/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene rhino -->
+            <div class="video-row-label">rhino</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/rhino/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/rhino/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/rhino/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/rhino/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/rhino/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene paragliding-launch -->
+            <div class="video-row-label">paragliding-launch</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/paragliding-launch/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/paragliding-launch/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/paragliding-launch/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/paragliding-launch/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/paragliding-launch/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene motocross-jump -->
+            <div class="video-row-label">motocross-jump</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/motocross-jump/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/motocross-jump/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/motocross-jump/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/motocross-jump/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/motocross-jump/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene tennis -->
+            <div class="video-row-label">tennis</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/tennis/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/tennis/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/tennis/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/tennis/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/tennis/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene paragliding -->
+            <div class="video-row-label">paragliding</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/paragliding/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/paragliding/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/paragliding/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/paragliding/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/paragliding/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene bmx-trees -->
+            <div class="video-row-label">bmx-trees</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bmx-trees/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bmx-trees/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bmx-trees/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bmx-trees/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bmx-trees/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene kite-surf -->
+            <div class="video-row-label">kite-surf</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/kite-surf/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/kite-surf/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/kite-surf/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/kite-surf/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/kite-surf/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene flamingo -->
+            <div class="video-row-label">flamingo</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/flamingo/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/flamingo/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/flamingo/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/flamingo/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/flamingo/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene bmx-bumps -->
+            <div class="video-row-label">bmx-bumps</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bmx-bumps/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bmx-bumps/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bmx-bumps/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bmx-bumps/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/bmx-bumps/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene car-turn -->
+            <div class="video-row-label">car-turn</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/car-turn/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/car-turn/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/car-turn/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/car-turn/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/car-turn/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene car-shadow -->
+            <div class="video-row-label">car-shadow</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/car-shadow/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/car-shadow/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/car-shadow/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/car-shadow/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/car-shadow/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene blackswan -->
+            <div class="video-row-label">blackswan</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/blackswan/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/blackswan/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/blackswan/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/blackswan/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/blackswan/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+            <!-- Scene elephant -->
+            <div class="video-row-label">elephant</div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/elephant/data_vis.mp4" >
+                </video>
+                <p class="video-text">Input Data Vis <br> Scene 1</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/elephant/flowmap_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Optimization <br> 2 min</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/elephant/flowmap_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">FlowMap Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/elephant/splat_opt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Optimization <br> 2 minutes</p>
+            </div>
+            <div class="video-cell">
+                <video autoplay muted loop controls>
+                    <source src="./tmpvidpulls/vid_exps/elephant/splat_render.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-text">Splatting Output <br> <a href="tmp"> Open in Interactive Viewer </a></p>
+            </div>
+
+</div>
+</div>
+</body>
+</html>
+

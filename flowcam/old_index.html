@@ -1,0 +1,512 @@
+<DOCTYPE html>
+
+    <title>FlowCam: Training Generalizable 3D Radiance Fields without Camera Poses via Pixel-Aligned Scene Flow</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-21408087-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-21408087-2');
+    </script>
+
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <style>
+        /* greek-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fCBc4EsA.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+
+        /* greek */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBxc4EsA.woff2) format('woff2');
+            unicode-range: U+0370-03FF;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fChc4EsA.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* greek-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7mxKOzY.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+
+        /* greek */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4WxKOzY.woff2) format('woff2');
+            unicode-range: U+0370-03FF;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <div role="alert" id='alert-if-safari'></div>
+
+    <script>
+        
+        var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+        if (is_safari) {
+            const alert_div = document.getElementById('alert-if-safari')
+            alert_div.className = 'alert alert-danger'
+            alert_div.innerHTML = 'Videos below sometimes do not load in Safari. Please view our webpage on Chrome/Firefox until we repair this.'
+        }
+
+    </script>
+
+    <body>
+        <div class="container">
+            <div class="row mb-2 mt-4" id="paper-title">
+                <h1 class="col-md-12 text-center">
+                    FlowCam
+                </h1>
+                <h4 class="col-md-12 text-center">
+                    Training Generalizable 3D Radiance Fields without Camera Poses via Pixel-Aligned Scene Flow
+                </h3>
+                <!--<h3 class="col-md-12 text-center"> <small>Under Review</small> </h3>-->
+            </div>
+
+            <div class="row" id="authors">
+                <div class="mx-auto text-center">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <a href="https://cameronosmith.github.io/">Cameron Smith</a>
+
+                        <li class="list-inline-item">
+                            <a href="https://yilundu.github.io/">Yilun Du</a>
+
+                        <li class="list-inline-item">
+                            <a href="https://ayushtewari.com/">Ayush Tewari</a>
+
+                        <li class="list-inline-item">
+                            <a href="https://www.vincentsitzmann.com/">Vincent Sitzmann</a>
+                    </ul>
+                    <p id="institution" >
+                        <a href="https://www.scenerepresentations.org" >Scene Representation Group </a>     @ MIT
+                    </p>
+                </div>
+            </div>
+            <div class="row mb-2" id="links">
+                <div class="mx-auto">
+                    <ul class="nav">
+                        <li class="nav-item text-center">
+                            <a href="https://arxiv.org/abs/2306.00180" class="nav-link" >
+                                <svg style="width:48px;height:48px" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z" />
+                                </svg><br>
+                                Paper
+                            </a>
+                        <li class="nav-item text-center">
+                            <a href="https://github.com/cameronosmith/FlowCam" class="nav-link">
+                                <svg style="width:48px;height:48px" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+                                </svg><br>
+                                Code
+                            </a>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div id="teaser-two" width="100%">
+                            <div class="mx-auto">
+                                <div class="row gif-label">
+                                    <div class="col-2">Input Video</div>
+                                    <div class="col-2">Estimated Poses</div>
+                                    <div class="col-2">Novel Trajectory</div>
+                                    <div class="col-2">Rendered RGB</div>
+                                    <div class="col-2">Rendered Depth</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <video src="img/teaser_hydrant/rgb_input.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/>
+                                    </div>
+                                    <div class="col-2 pose"">
+                                        <video src="img/teaser_hydrant/pose_est (2).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" height="100%" />
+                                    </div>
+                                    <div class="col-2 pose">
+                                        <video src="img/teaser_hydrant/novel_pose.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" height="100%"/>
+                                    </div>
+                                    <div class="col-2">
+                                        <video src="img/teaser_hydrant/rgb_render.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/>
+                                    </div>
+                                    <div class="col-2">
+                                        <video src="img/teaser_hydrant/depth_render.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/>
+                                    </div>
+                                </div>
+                            </div>
+            </div> <!-- row -->
+
+                    <!-- <img id="teaser" src="img/teaser.png" class="img-responsive" alt="teaser figure"> -->
+                    <br>
+                    <h7 class="text-justify">
+                        Our model infers poses and reconstructs a radiance field in a single feed-forward pass, without performing any per-scene optimization. 
+                        Above we demonstrate <b>real-time, feed-forward pose estimation </b>(~20fps), followed by <b>feed-forward 3D reconstruction and view synthesis</b> with a novel trajectory. 
+                        Since our model estimates poses and geometry on short video clips, we apply both our pose estimation and view synthesis on sliding windows of the video and trajectory. 
+                        Our model is trained <b>without camera poses</b>, supervised only via re-rendering losses and optical flow on top of <b>uncurated video</b>.
+                    </h7>
+                </div>
+            </div>
+            <br>
+
+            <div class="row mb-4">
+                <div class="col-md-6 mx-auto">
+                    <h2>Abstract</h2>
+                    <h7 class="text-justify">
+                        Reconstruction of 3D neural fields from posed images has emerged as a promising method for self-supervised representation learning. 
+                        The key challenge preventing the deployment of these 3D scene learners on large-scale video data is their dependence on precise camera poses from structure-from-motion, which is prohibitively expensive to run at scale. 
+                        We propose a method that jointly reconstructs camera poses and 3D neural scene representations online and in a single forward pass. We estimate poses by first lifting frame-to-frame optical flow to 3D scene flow via differentiable rendering, preserving locality and shift-equivariance of the image processing backbone. 
+                        SE(3) camera pose estimation is then performed via a weighted least-squares fit to the scene flow field. 
+                        This formulation enables us to jointly supervise pose estimation and a generalizable neural scene representation via re-rendering the input video, and thus, train end-to-end and fully self-supervised on real-world video datasets. 
+                        We demonstrate that our method performs robustly on diverse, real-world video, notably on sequences traditionally challenging to optimization-based pose estimation techniques.
+                    </h7>
+                </div>
+            </div>
+
+            <br>
+            <div class="row mb-3" >
+            <div class="col-md-5 mx-auto" >
+                <div>
+                    <img src="img/pipeline.png" class="img-responsive" alt="pipeline" width="100%">
+                </div>
+                <p class="text-justify">
+                    Given a set of video frames, our method first computes frame-to-frame camera
+poses (left) and then re-renders the input video (right). To estimate pose between two frames, we compute
+off-the-shelf optical flow to establish 2D correspondences. Using single-view pixelNeRF, we obtain a surface
+point cloud as the expected 3D ray termination point for each pixel, X, Y respectively. Because X and Y are
+pixel-aligned, optical flow allows us to compute 3D scene flow as the difference of corresponding 3D points. We
+then find the camera pose P ∈ SE(3) that best explains the 3D flow field by solving a weighted least-squares
+problem with flow confidence weights W. Using all frame-to-frame poses, we re-render all frames. We enforce
+an RGB loss and a flow loss between projected pose-induced 3D scene flow and 2D optical flow. Our method is
+trained end-to-end, assuming only an off-the-shelf optical flow estimator.
+                </p>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-6 mx-auto">
+                <h2>Additional Sliding-Window CO3D results</h2>
+                <h7>Here we show additional pose estimation and novel view synthesis results. 
+                    As our model operates on shorter video clips, we apply our model in a sliding window fashion for these longer sequences. 
+                    Though this sliding window approach allows our model to estimate poses and 3D geometry for extended sequences, it also yields temporal flickering in the renderings. 
+                    Exploring global optimization extensions for longer sequences is exciting future work.</h7>
+
+                <div id="teaser-two" width="100%">
+                        <div class="mx-auto">
+                            <div class="row gif-label">
+                                <div class="col-2">Input Video</div>
+                                <div class="col-2">Estimated Poses</div>
+                                <div class="col-2">Novel Trajectory</div>
+                                <div class="col-2">Rendered RGB</div>
+                                <div class="col-2">Rendered Depth</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2">
+                                    <video src="img/plant_all/rgb_input (2).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/>
+                                </div>
+                                <div class="col-2 pose"">
+                                    <video src="img/plant_all/pose_est (5).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" height="100%" />
+                                </div>
+                                <div class="col-2 pose">
+                                    <video src="img/plant_all/novel_pose (2).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" height="100%"/>
+                                </div>
+                                <div class="col-2">
+                                    <video src="img/plant_all/rgb_render (11).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/>
+                                </div>
+                                <div class="col-2">
+                                    <video src="img/plant_all/depth_render.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- row -->
+                    <br style="line-height: 50%;">
+                    <div id="teaser-two" width="100%">
+                        <div class="mx-auto">
+                            <div class="row">
+                                <div class="col-2">
+                                    <video src="img/hydrant2_all/rgb_input (3).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/>
+                                </div>
+                                <div class="col-2 pose"">
+                                    <video src="img/hydrant2_all/pose_est (6).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" height="100%" />
+                                </div>
+                                <div class="col-2 pose">
+                                    <video src="img/hydrant2_all/novel_pose (3).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" height="100%"/>
+                                </div>
+                                <div class="col-2">
+                                    <video src="img/hydrant2_all/rgb_render (13).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/>
+                                </div>
+                                <div class="col-2">
+                                    <video src="img/hydrant2_all/depth_render (1).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- row -->
+
+               </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-6 mx-auto">
+
+                    <h2>Uncurated Results on Video Reconstruction and Pose Estimation</h2>
+                    <p class="text-justify">
+                        We compare our method to the baselines Video Autoencoder and RUST on the task of video reconstruction. 
+                        We evaluate each method on CO3D-Hydrants, CO3D-10Category, RealEstate10k, and KITTI.
+                        Video reconstruction is the task of reconstructing an input video using a sparse set of context frames and estimated poses. 
+                        We use 3 context views on CO3D and 2 on RealEstate10K and KITTI.
+                        Note that RUST uses <i>latent poses</i> instead of explicit ones.
+                    </p>
+                    <h4>CO3D-Hydrants</h4>
+                    <div width="100%">
+                        <div class="mx-auto">
+                            <div class="row gif-label">
+                                <div class="col-2">Input Video</div>
+                                <div class="col-2">Our Recon.</div>
+                                <div class="col-2">VidAE Recon.</div>
+                                <div class="col-2">RUST Recon.</div>
+                                <div class="col-2">Our Poses</div>
+                                <div class="col-2">VidAE Poses</div>
+
+                            </div>
+                                <div class="row">
+                                    <div class="col-2"> <video src="img/vid_recon_hydrant/col_0_hydrant.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
+                                    <div class="col-2 pose""> <video src="img/vid_recon_hydrant/col_1_hydrant.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                                    <div class="col-2 pose"> <video src="img/vid_recon_hydrant/col_2_hydrant.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
+                                    <div class="col-2"> <video src="img/vid_recon_hydrant/col_3_hydrant.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
+                                    <div class="col-2"> <video src="img/vid_recon_hydrant/col_4_hydrant.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
+                                    <div class="col-2"> <video src="img/vid_recon_hydrant/col_5_hydrant.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
+                    <h4><br>CO3D-10Category</h4>
+                    <div width="100%">
+                        <div class="mx-auto">
+                            <div class="row gif-label">
+                                <div class="col-2">Input Video</div>
+                                <div class="col-2">Our Recon.</div>
+                                <div class="col-2">VidAE Recon.</div>
+                                <div class="col-2">RUST Recon.</div>
+                                <div class="col-2">Our Poses</div>
+                                <div class="col-2">VidAE Poses</div>
+
+                            </div>
+                                <div class="row">
+                                    <div class="col-2"> <video src="img/vid_recon_10cat/col_0_10cat.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
+                                    <div class="col-2 pose""> <video src="img/vid_recon_10cat/col_1_10cat.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                                    <div class="col-2 pose"> <video src="img/vid_recon_10cat/col_2_10cat.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
+                                    <div class="col-2"> <video src="img/vid_recon_10cat/col_3_10cat.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
+                                    <div class="col-2"> <video src="img/vid_recon_10cat/col_4_10cat.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
+                                    <div class="col-2"> <video src="img/vid_recon_10cat/col_5_10cat.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
+                                </div>
+                    <br>
+                    <h4>RealEstate10K</h4>
+                    <div width="100%">
+                        <div class="mx-auto">
+                            <div class="row gif-label">
+
+                                <div class="col-2">Input Video</div>
+                                <div class="col-2">Our Recon.</div>
+                                <div class="col-2">VidAE Recon.</div>
+                                <div class="col-2">RUST Recon.</div>
+                                <div class="col-2">Our Poses</div>
+                                <div class="col-2">VidAE Poses</div>
+
+                            </div>
+                                <div class="row">
+                                    <div class="col-2"> <video src="img/vid_recon_re10k/col_0_re10k.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
+                                    <div class="col-2 pose""> <video src="img/vid_recon_re10k/col_1_re10k.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                                    <div class="col-2 pose"> <video src="img/vid_recon_re10k/col_2_re10k.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
+                                    <div class="col-2"> <video src="img/vid_recon_re10k/col_3_re10k.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
+                                    <div class="col-2"> <video src="img/vid_recon_re10k/col_4_re10k.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
+                                    <div class="col-2"> <video src="img/vid_recon_re10k/col_5_re10k.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div>
+                                </div>
+                        <br>
+                        <h4>KITTI</h4>
+                            <div class="row gif-label">
+                                <div class="col-12">Input Video</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6"> <div padding-top="120%"><video src="img/vid_recon_kitti/col_0_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-6 pose""> <video src="img/vid_recon_kitti2/col_0_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                            </div>
+                            <div class="row gif-label">
+                                <div class="col-12">Our reconstruction</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6"> <div padding-top="120%"><video src="img/vid_recon_kitti/col_1_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-6 pose""> <video src="img/vid_recon_kitti2/col_1_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                            </div>
+                            <div class="row gif-label">
+                                <div class="col-12">VidAE Reconstruction</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6"> <div padding-top="120%"><video src="img/vid_recon_kitti/col_2_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-6 pose""> <video src="img/vid_recon_kitti2/col_2_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                            </div>
+                            <div class="row gif-label">
+                                <div class="col-12">RUST Reconstruction</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6"> <div padding-top="120%"><video src="img/vid_recon_kitti/col_3_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-6 pose""> <video src="img/vid_recon_kitti2/col_3_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                            </div>
+                            <br>
+                            <div class="row gif-label">
+                                <div class="col-3">Our Poses</div>
+                                <div class="col-3">VidAE Poses</div>
+                                <div class="col-3">Our Poses</div>
+                                <div class="col-3">VidAE Poses</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3"> <div padding-top="0%"><video src="img/vid_recon_kitti/col_4_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-3 pose""> <video src="img/vid_recon_kitti/col_5_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                                <div class="col-3"> <div padding-top="0%"><video src="img/vid_recon_kitti2/col_4_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-3 pose""> <video src="img/vid_recon_kitti2/col_5_kitti.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                        </div>
+
+                        <br>
+                        <br>
+                        <h2>Fine-tuned Pose Estimation and View Synthesis on Large-Scale, Out-of-Distribution Scene</h2>
+                        <h7>
+                            We evaluate our RealEstate10K-trained model on a significantly out-of-distribution scene from the Tanks and Temples dataset, first without any scene-adaptation and then with. 
+                            Note that our scene-adaptation fine-tuning stage is not equivalent to direct optimization of camera poses and a radiance field, as performed e.g. in BARF: neither camera poses nor 
+                            the radiance field are free variables. Instead, we fine-tune the weights of our convolutional inference backbone and MLP renderer on subsequences of the target video for more accurate feed-forward prediction.
+                            Even with this significant distribution gap, our RealEstate10K-model's estimated trajectory captures the looping structure of the ground truth, albeit with accumulated drift. 
+                            After the scene-adaptation fine-tuning stage, our model estimates poses which align closely with the ground truth, despite having no loop closure mechanism. 
+                            We also plot the trajectory estimated by BARF, which fails to capture the correct pose distribution.
+                        </h7>
+                            <div class="row gif-label">
+                                <div class="col-4">Input Video</div>
+                                <div class="col-4">Rendered RGB</div>
+                                <div class="col-4">Rendered Depth</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4"> <div padding-top="120%"><video src="img/bulldozer/rgb_input (6).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-4 pose""> <video src="img/bulldozer/rgb_render (37).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                                <div class="col-4 pose""> <video src="img/bulldozer/rgb_render (36).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                            </div>
+                            <br>
+                            <div class="row gif-label">
+                                <div class="col-3">BARF</div>
+                                <div class="col-3">Our RealEstate10K Model</div>
+                                <div class="col-3">Our Scene Adapted Model</div>
+                                <div class="col-3">Novel trajectory</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3"> <div padding-top="0%"><video src="img/bulldozer/barf_poses.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-3 pose""> <video src="img/bulldozer/re10k_poses.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                                <div class="col-3"> <div padding-top="0%"><video src="img/bulldozer/adapted_poses (1).mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/> </div></div>
+                                <div class="col-3 pose""> <video src="img/bulldozer/novel_poses.mp4" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%" /> </div>
+                        </div>
+                    </div> <!-- row -->
+
+            </div>
+
+            <br>
+            <br>
+            <div class="row mb-10">
+                <div class="col-md-10 mx-auto">
+                    <h4>Related Links</h4>
+                    <ul>
+                        <li>
+                            Our renderer is based on <a href="https://arxiv.org/abs/2012.02190">pixelNeRF</a>.
+                        </li>
+                        <li>
+                            Also see the concurrent work
+                            <a href="https://arxiv.org/abs/2303.14478">DBARF</a>
+                            which also regresses camera poses alongside a generalizable NeRF.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            
+            <div class="row mb-10">
+                <div class="col-md-10 mx-auto">
+                    <h4 class="mb-10">Bibtex</h4>
+                    <textarea id="bibtex" class="form-control" readonly style="padding-left:20%">
+@misc{smith2023flowcam,
+title={FlowCam: Training Generalizable 3D Radiance Fields without Camera Poses via Pixel-Aligned Scene Flow}, 
+author={Cameron Smith and Yilun Du and Ayush Tewari and Vincent Sitzmann},
+year={2023},
+eprint={2306.00180},
+archivePrefix={arXiv},
+primaryClass={cs.CV}
+}
+                    </textarea>
+                </div>
+            </div>
+            
+            <div class="row mb-10">
+                <div class="col-md-10 mx-auto">
+                    <h4>Acknowledgements</h4>
+                    <p class="text-justify">
+                        We thank <a href="https://davidcharatan.com/">David Charatan</a> for helpful discussions and comments on the text.
+                        This website is recycled from <a href="https://alexyu.net/pixelnerf//">pixelNeRF</a>.
+                    </p>
+                    <p class="text-justify">
+                        Please send any questions or comments to <a href="https://cameronosmith.github.io">Cameron Smith</a>.
+                    </p>
+                </div>
+            </div>
+        </div> <!-- container -->
+    </body>
