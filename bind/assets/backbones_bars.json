@@ -1,0 +1,263 @@
+{
+  "models": [
+    "DINOv3",
+    "DA3",
+    "DynaFlip",
+    "PaliGemma",
+    "\u03c00"
+  ],
+  "model_labels": [
+    "DINOv3",
+    "DA3",
+    "DynaFlip",
+    "PaliGemma",
+    "\u03c00"
+  ],
+  "bars": [
+    {
+      "outcome": "pick and place",
+      "color": "#2b8a4f",
+      "y": [
+        82.3529411764706,
+        87.5,
+        80.0,
+        77.77777777777777,
+        60.0
+      ],
+      "customs": [
+        [
+          14,
+          17
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "outcome": "pick and wrong orientation place",
+      "color": "#5fb574",
+      "y": [
+        17.647058823529413,
+        0.0,
+        0.0,
+        0.0,
+        10.0
+      ],
+      "customs": [
+        [
+          3,
+          17
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "outcome": "pick and wrong position place",
+      "color": "#b3d36d",
+      "y": [
+        0.0,
+        0.0,
+        0.0,
+        11.11111111111111,
+        10.0
+      ],
+      "customs": [
+        [
+          0,
+          17
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "outcome": "pick and drop",
+      "color": "#f0c75b",
+      "y": [
+        0.0,
+        0.0,
+        10.0,
+        0.0,
+        0.0
+      ],
+      "customs": [
+        [
+          0,
+          17
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ]
+      ]
+    },
+    {
+      "outcome": "slipped pick / touched",
+      "color": "#ea9a51",
+      "y": [
+        0.0,
+        12.5,
+        0.0,
+        11.11111111111111,
+        10.0
+      ],
+      "customs": [
+        [
+          0,
+          17
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "outcome": "hover / slight miss",
+      "color": "#d97050",
+      "y": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        10.0
+      ],
+      "customs": [
+        [
+          0,
+          17
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "outcome": "medium miss",
+      "color": "#b14848",
+      "y": [
+        0.0,
+        0.0,
+        10.0,
+        0.0,
+        0.0
+      ],
+      "customs": [
+        [
+          0,
+          17
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ]
+      ]
+    }
+  ],
+  "scores": [
+    98.2,
+    90.0,
+    84.0,
+    87.8,
+    78.5
+  ],
+  "grids": [
+    "https://yukon.tail2a8ee0.ts.net:8443/v4_pickplace_indist_2026-06-14_104456/grid_annotated.mp4",
+    "https://yukon.tail2a8ee0.ts.net:8443/v4_da3_pickplace_indist_2026-07-01_153939/grid_annotated.mp4",
+    "https://yukon.tail2a8ee0.ts.net:8443/v4_dynaflip_pickplace_indist_2026-07-01_151415/grid_annotated.mp4",
+    "https://yukon.tail2a8ee0.ts.net:8443/v4_paligemma_pickplace_indist_2026-07-01_154724/grid_annotated.mp4",
+    "https://yukon.tail2a8ee0.ts.net:8443/v4_pi0_pickplace_indist_2026-07-01_160415/grid_annotated.mp4"
+  ]
+}

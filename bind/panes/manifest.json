@@ -1,0 +1,44 @@
+[
+  {
+    "stem": "fig1_method_overview",
+    "title": "Figure 1 \u2014 Method Overview",
+    "width_in": 7.0,
+    "height_in": 4.49,
+    "bytes": 165479
+  },
+  {
+    "stem": "fig2_method_forward_pass",
+    "title": "Figure 2 \u2014 Method Forward Pass",
+    "width_in": 7.0,
+    "height_in": 2.69,
+    "bytes": 135616
+  },
+  {
+    "stem": "fig3_core_experiments",
+    "title": "Figure 3 \u2014 Core Experiments",
+    "width_in": 7.0,
+    "height_in": 6.13,
+    "bytes": 627309
+  },
+  {
+    "stem": "fig4_more_tasks",
+    "title": "Figure 4 \u2014 More Tasks",
+    "width_in": 7.0,
+    "height_in": 4.75,
+    "bytes": 767247
+  },
+  {
+    "stem": "fig5_sim_mujoco",
+    "title": "Figure 5 \u2014 Sim Benchmark",
+    "width_in": 7.0,
+    "height_in": 5.5,
+    "bytes": 387313
+  },
+  {
+    "stem": "fig6_backbones",
+    "title": "Figure 6 \u2014 Backbones",
+    "width_in": 7.0,
+    "height_in": 3.33,
+    "bytes": 278438
+  }
+]
