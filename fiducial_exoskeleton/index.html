@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Fiducial Exoskeletons</title>
+  <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css" />
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+  <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.8.*/dist/index.js'></script>
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩻</text></svg>">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero theme-light" data-theme="light">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title">
+             <span style="color: #640096;">Fiducial</span> <span style="color: #fe6600;">Exoskeletons</span>: <br>Image-Centric Robot State Estimation!</br>
+            </h1>
+            <div class="is-size-5">
+            </div>
+
+            <div class="d-flex flex-row mt-4">
+              <a/tree/main?tab=readme-ov-file href="./latest_paper_fe.pdf" class="button is-dark">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+                </span>
+                <span>Paper</span>
+              </a>
+              <a href="https://arxiv.org/abs/2601.08034"  class="button is-dark">
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>arXiv</span>
+              </a>
+              <a href="https://github.com/cameronosmith/FiducialExoskeletons" class="button is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+              <a/tree/main?tab=readme-ov-file href="https://www.youtube.com/watch?v=9wAAUZT7drI" class="button is-dark">
+                <span class="icon">
+                  <i class="fab fa-youtube"></i>
+                </span>
+                <span>Video</span>
+              </a>
+              <a href="https://github.com/cameronosmith/FiducialExoskeletons/tree/main/exo_hardware_files/so100"
+                class="button is-dark">
+                <span class="icon">
+                  <i class="fas fa-database"></i>
+                </span>
+                <span>STL Files</span>
+              </a>
+              <a href="https://github.com/cameronosmith/FiducialExoskeletons/blob/main/README.md"
+                class="button is-dark">
+                <span class="icon">
+                  <i class="fas fa-file-alt"></i>
+                </span>
+                <span>Installation Guide</span>
+              </a>
+              <!--<a href="X"
+                class="button is-dark">
+                <span class="icon">
+                  <i class="fab fa-twitter"></i>
+                </span>
+                <span>Tweet</span>
+              </a>-->
+                
+              
+            </div>
+
+
+      <p class="subtitle is-5">
+      <br>
+        Below we show examples of <b>camera-robot pose</b> and <b>robot joint state estimation</b>, from an <i>uncalibrated camera</i>, without any motor information — the robot is not even plugged in!
+      </p>
+
+      <div class="columns is-centered is-multiline">
+        <div class="column is-one-half has-text-centered">
+          <h3 class="subtitle is-6">Moving Camera, Static Robot</h3>
+          <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;">
+            <source src="vid/cam_pose_anim.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column is-one-half has-text-centered">
+          <h3 class="subtitle is-6">Moving Robot, (Mostly) Static Robot Base</h3>
+          <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;">
+            <source src="vid/joint_est_anim.mp4" type="video/mp4">
+          </video>
+        </div>
+        
+      </div>
+
+  <section class="section hero is-light" data-theme="light">
+    <p class="subtitle is-5" style="text-align: left; margin-bottom: -25px;margin-top: -25px;">
+        <b>TL;DR:</b>
+        <br>
+        • Reformulation of robot state estimation and control using vision instead of just motors
+        <br>
+        • Link pose estimation made easy via 3D-printed mounts per-link with fiducial markers  
+      </p>
+    </section>
+
+    <br>
+
+
+
+    <iframe width="1020" height="630" src="https://www.youtube.com/embed/9wAAUZT7drI?si=J4bD9BTZmVR0I1WH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="section hero is-light" data-theme="light"  >
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns" style=" margin-bottom: -35px;margin-top: -35px;">
+        <div class="column">
+          <h2 class="title is-4">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+We present a simple yet effective approach to robot state estimation that eliminates the need for expensive, high-precision actuators. Conventional methods rely on forward kinematics (FK) and precise motor encoders, but these degrade in accuracy due to backlash, thermal drift, and mismatched simulation–sensor dynamics. To improve both accuracy (especially on lower-cost hardware), we reformulate state estimation as a visual pose-estimation problem. Our method estimates the 6-DoF pose of each robot link from a single RGB image and performs a global joint optimization—optionally warm-started with encoder readings—to recover the full robot configuration. This formulation supports accurate 3D tasks such as joint-angle inference, camera pose estimation, and robot calibration directly from monocular images. To enable robust visual pose estimation of each link, we introduce the fiducial exoskeleton: a 3D-printed frame with fiducial markers, mounted on each link. The known marker-link relationship allows precise per-link pose estimation without sequential calibration or specialized equipment. Experiments on state-estimation and robotic control tasks demonstrate substantial accuracy gains over standard FK-based methods, even on such low-cost hardware.
+
+            </p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="hero theme-light" data-theme="light" style="margin-top: -55px;">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns">
+          <div class="column">
+
+
+<h2 class="title mt-6 is-4">State Estimation Results</h2>
+<p class="subtitle is-5">
+<br>
+  We compare state estimation (estimated robot state rendered on top of original video) with the traditional method of just using forward kinematics, our method using the raw encoders as input, and our method without using any internal motor readings.
+<br>
+<br>
+ The gray rendered robot is the <i>estimated </i> robot state overlayed on top of the real robot.
+</p>
+
+<div class="columns is-centered is-multiline">
+  <div class="column is-one-third has-text-centered">
+    <h3 class="subtitle is-6">Forward Kinematics (Encoders Only)</h3>
+    <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;">
+      <source src="vid/all3_fk.mov" type="video/mp4">
+    </video>
+  </div>
+  <div class="column is-one-third has-text-centered">
+    <h3 class="subtitle is-6">Ours — w/o Encoder Init</h3>
+    <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;">
+      <source src="vid/all3_noenc2.mov" type="video/mp4">
+    </video>
+  </div>
+  <div class="column is-one-third has-text-centered">
+    <h3 class="subtitle is-6">Ours — w Encoders</h3>
+    <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;">
+      <source src="vid/all3_enc.mov" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<h2 class="title mt-6 is-4">Control Results</h2>
+<p class="subtitle is-5">
+<br>
+  We compare accuracy of moving the robot to a target kinematic state using encoders only, our method without delta correction, and our method with delta correction.
+<br>
+<br>
+ The gray rendered robot is the <i>target </i>robot state overlayed on top of the robot moving to (and ideally reaching) that state, for a sequence of target states .</p>
+</p>
+
+<div class="columns is-centered is-multiline">
+  <div class="column is-one-third has-text-centered">
+    <h3 class="subtitle is-6">Naive (Encoders Only)</h3>
+    <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;">
+      <source src="vid/naive_control.mov" type="video/mp4">
+    </video>
+  </div>
+  <div class="column is-one-third has-text-centered">
+    <h3 class="subtitle is-6">Ours — w/o Delta Correction</h3>
+    <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;">
+      <source src="vid/ours_nodelta_yescalib.mov" type="video/mp4">
+    </video>
+  </div>
+  <div class="column is-one-third has-text-centered">
+    <h3 class="subtitle is-6">Ours — w/ Delta Correction</h3>
+    <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;">
+      <source src="vid/ourmove_wdelta.mov" type="video/mp4">
+    </video>
+  </div>
+</div>
+<h2 class="title mt-6 is-4">Analytical Puck Grasp Demo</h2>
+<p class="subtitle is-5">
+<br>
+  We demo a simple pipeline where a grasp for a known object is computed with IK and then executed with the robot.
+  <br>
+  <br>
+    <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;">
+      <source src="vid/ikgrasp_2x.mov" type="video/mp4">
+    </video>
+<br>
+
+<h2 class="title mt-6 is-4">Coming Soon: FidEx on More Embodiments</h2>
+<p class="subtitle is-5">
+<br>
+  We show a FidEx setup on the ARX robot, again without any motor information or camera calibration (just a casually captured iphone video).
+  <br>
+  <br>
+    <video controls autoplay muted loop playsinline style="width:100%; border: 1px solid #dddddd;">
+      <source src="vid/arx_vid_out.mp4" type="video/mp4">
+    </video>
+<br>
+
+
+
+
+
+</body>
+
+</html>
