@@ -123,6 +123,36 @@ header.page > .container { position: relative; z-index: 1; }
 .bind-badge.disabled {
   opacity: 0.45; pointer-events: none; cursor: not-allowed;
 }
+
+/* ── BIND video sections (short explainer + long walkthrough) ── */
+.bind-video-section {
+  padding: 24px 0 8px 0;
+}
+.bind-video-section > .container {
+  max-width: 720px;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+.bind-video-section video {
+  width: 100%;
+  max-height: 420px;
+  border-radius: var(--r-md, 10px);
+  background: #000;
+  display: block;
+  box-shadow: 0 4px 20px rgba(20, 15, 10, 0.08);
+}
+.bind-walkthrough {
+  padding: 48px 0 24px 0;
+}
+.bind-walkthrough > .exp-header {
+  max-width: 720px;
+  margin: 0 auto 16px auto;
+  padding: 0 24px;
+}
+.bind-walkthrough > .exp-header .exp-title {
+  text-align: left;
+}
+.bind-walkthrough video { max-height: none; }
 /* Method card sitting below the title + lede — centered, ~3× the inline
    width of the prior small variant so the diagram is readable. */
 .header-method {
@@ -1754,15 +1784,26 @@ section.premise {
     <div class="bind-hero-badges">
       <a href="main.pdf" class="bind-badge" target="_blank" rel="noopener">
         <span>📄</span><span>Paper</span></a>
-      <a href="#" class="bind-badge disabled" title="Coming soon">
+      <a href="https://arxiv.org/abs/2609.38443" class="bind-badge" target="_blank" rel="noopener">
         <span>🗃️</span><span>arXiv</span></a>
-      <a href="#" class="bind-badge disabled" title="Coming soon">
-        <span>💻</span><span>Code (soon)</span></a>
+      <a href="https://github.com/cameronosmith/bind" class="bind-badge" target="_blank" rel="noopener">
+        <span>💻</span><span>Code</span></a>
       <a href="#" class="bind-badge disabled" title="Coming soon">
         <span>𝕏</span><span>Thread</span></a>
+      <a href="#explainer" class="bind-badge">
+        <span>▶</span><span>Explainer (2 min)</span></a>
+      <a href="#walkthrough" class="bind-badge">
+        <span>▶</span><span>Full walkthrough</span></a>
     </div>
   </div>
 </header>
+
+<section class="bind-video-section bind-explainer" id="explainer">
+  <div class="container">
+    <video src="vid/explainer.mp4" controls playsinline preload="metadata"
+           poster=""></video>
+  </div>
+</section>
 
 <section class="split" id="split-intro">
   <div class="split-stack">
@@ -2343,6 +2384,16 @@ section.premise {
             id="method-forward-svg-obj"
             class="method-svg"
             aria-label="BIND method — full forward pass, animated per-panel."></object>
+  </div>
+</section>
+
+<section class="bind-video-section bind-walkthrough" id="walkthrough">
+  <header class="exp-header">
+    <h2 class="exp-title"><span class="exp-num">Walkthrough:</span> Full video</h2>
+  </header>
+  <div class="container">
+    <video src="vid/walkthrough.mp4" controls playsinline preload="metadata"
+           poster=""></video>
   </div>
 </section>
 
