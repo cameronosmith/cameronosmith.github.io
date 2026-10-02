@@ -135,10 +135,12 @@ header.page > .container { position: relative; z-index: 1; }
 }
 .bind-video-section video {
   width: 100%;
-  max-height: 420px;
-  border-radius: var(--r-md, 10px);
   background: #000;
   display: block;
+}
+.bind-video-section .container {
+  border-radius: var(--r-md, 10px);
+  overflow: hidden;
   box-shadow: 0 4px 20px rgba(20, 15, 10, 0.08);
 }
 .bind-walkthrough {
