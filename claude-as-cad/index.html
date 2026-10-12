@@ -10,7 +10,7 @@
 <link rel="icon" type="image/png" sizes="64x64" href="img/favicon_64.png">
 <link rel="apple-touch-icon" href="img/favicon_180.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,400;1,500&family=Inter:wght@400..600&display=swap">
-<link rel="stylesheet" href="hero/hero.css?v=36b142ff4a">
+<link rel="stylesheet" href="hero/hero.css?v=68c77e28da">
 <style>
   :root {
     --ground: #fafafa;
@@ -316,8 +316,8 @@ npm run serve -- --dir /path/to/your/cad --port 4178</code></pre>
   </main>
 </div>
 <script type="module">
-  import { lazyMountClaudeCadHero, lazyMountEditorPane, lazyMountNotesPane, lazyMountMultiAgentPane, lazyMountArmBuildPane, lazyMountGallery, lazyMountFollowViewer } from "./hero/loader.js?v=36b142ff4a";
-  import { mountTocArm } from "./hero/toc_arm.js?v=36b142ff4a";
+  import { lazyMountClaudeCadHero, lazyMountEditorPane, lazyMountNotesPane, lazyMountMultiAgentPane, lazyMountArmBuildPane, lazyMountGallery, lazyMountFollowViewer } from "./hero/loader.js?v=68c77e28da";
+  import { mountTocArm } from "./hero/toc_arm.js?v=68c77e28da";
   const debug = location.search.includes("debug");
   const $ = (id) => document.getElementById(id);
   if (matchMedia("(min-width: 1001px)").matches) lazyMountFollowViewer($("cac-follow"), { debug });

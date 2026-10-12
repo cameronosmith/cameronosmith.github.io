@@ -9,9 +9,9 @@
 // WebGL renderer draws every card into its own 2D canvas, so the page doesn't add six WebGL contexts.
 // Builds: assets/gallery/gallery_<key>.{json,bin} (tools/export_gallery.py, from the video's renders).
 import * as THREE from "./vendor/three.module.min.js";
-import { OrbitControls } from "./vendor/OrbitControls.js";
-import { buildGeometry, loadBundle } from "./arm.js?v=36b142ff4a";
-import { GALLERY_ITEMS, galleryGrid } from "./template.js?v=36b142ff4a";
+import { OrbitControls } from "./vendor/OrbitControls.js?v=68c77e28da";
+import { buildGeometry, loadBundle } from "./arm.js?v=68c77e28da";
+import { GALLERY_ITEMS, galleryGrid } from "./template.js?v=68c77e28da";
 
 const BASE_URL = new URL(".", import.meta.url);
 const DROP = 0.42; // seconds each piece takes to land (as the renders)

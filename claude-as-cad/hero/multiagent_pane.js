@@ -8,7 +8,7 @@
 // panels on the right. Click a stage to jump to it, click a tab to read any agent's transcript.
 // The chats are re-enacted from the real sessions (strings as in the video); it auto-plays
 // cad → calib_and_data_recording → model_training → deploy_model and loops.
-import { el } from "./template.js?v=36b142ff4a";
+import { el } from "./template.js?v=68c77e28da";
 
 const BASE_URL = new URL(".", import.meta.url);
 const media = (name) => new URL(`assets/ma/${name}`, BASE_URL).href;

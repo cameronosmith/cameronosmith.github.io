@@ -23,13 +23,13 @@ the real arm in a light web fork of the viewer, next to a mock Claude Code panel
 ```html
 <!-- fonts the hero is styled with (Inter + EB Garamond italic, both OFL via Google Fonts) -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,400;1,500&family=Inter:wght@400..600&display=swap">
-<link rel="stylesheet" href="hero/hero.css?v=36b142ff4a">
+<link rel="stylesheet" href="hero/hero.css?v=68c77e28da">
 
 <div id="cac-hero"></div>
 <p class="caption">Scripted replay of click-to-reference on the real arm — orbit and zoom while it runs; when it ends, the gripper follows your cursor.</p>
 
 <script type="module">
-  import { lazyMountClaudeCadHero } from "./hero/loader.js?v=36b142ff4a";
+  import { lazyMountClaudeCadHero } from "./hero/loader.js?v=68c77e28da";
   lazyMountClaudeCadHero(document.getElementById("cac-hero"), {
     fallbackVideo: "media/click_to_reference.mp4",   // shown if WebGL is unavailable
     fallbackPoster: "media/click_to_reference.jpg"

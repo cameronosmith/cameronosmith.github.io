@@ -10,9 +10,9 @@
 // (tools/build_armbuild_script.py → assets/armbuild2_script.json). Visitors can orbit any time, click
 // any face to copy its reference, and jump between build steps.
 import * as THREE from "./vendor/three.module.min.js";
-import { OrbitControls } from "./vendor/OrbitControls.js";
-import { buildGeometry, loadBundle } from "./arm.js?v=36b142ff4a";
-import { ARMBUILD_HISTORY, armBuildTemplate, el } from "./template.js?v=36b142ff4a";
+import { OrbitControls } from "./vendor/OrbitControls.js?v=68c77e28da";
+import { buildGeometry, loadBundle } from "./arm.js?v=68c77e28da";
+import { ARMBUILD_HISTORY, armBuildTemplate, el } from "./template.js?v=68c77e28da";
 
 const BASE_URL = new URL(".", import.meta.url);
 const FPS = 25;

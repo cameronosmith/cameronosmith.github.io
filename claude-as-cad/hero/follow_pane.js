@@ -8,8 +8,8 @@
 // J1–J5 toward a camera-facing work plane), drag to orbit, click then scroll to zoom. The arm eases
 // home when the cursor leaves the window.
 import * as THREE from "./vendor/three.module.min.js";
-import { OrbitControls } from "./vendor/OrbitControls.js";
-import { loadArm } from "./arm.js?v=36b142ff4a";
+import { OrbitControls } from "./vendor/OrbitControls.js?v=68c77e28da";
+import { loadArm } from "./arm.js?v=68c77e28da";
 
 const BASE_URL = new URL(".", import.meta.url);
 const REACH = 0.36; // a little inside full extension, so the arm never has to lock straight

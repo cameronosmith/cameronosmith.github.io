@@ -9,9 +9,9 @@
 //     Claude Code panel types "join the faces of … with the face …" with ⌘V pastes, and the trapezoidal
 //     connector grows between the faces. It is labelled as a scripted replay in the UI.
 import * as THREE from "./vendor/three.module.min.js";
-import { OrbitControls } from "./vendor/OrbitControls.js";
-import { loadArm } from "./arm.js?v=36b142ff4a";
-import { HISTORY, el, template } from "./template.js?v=36b142ff4a";
+import { OrbitControls } from "./vendor/OrbitControls.js?v=68c77e28da";
+import { loadArm } from "./arm.js?v=68c77e28da";
+import { HISTORY, el, template } from "./template.js?v=68c77e28da";
 
 const BASE_URL = new URL(".", import.meta.url);
 

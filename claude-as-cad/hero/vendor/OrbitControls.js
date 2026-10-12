@@ -494,7 +494,9 @@ class OrbitControls extends EventDispatcher {
 
 		function getZoomScale( delta ) {
 
-			const normalized_delta = Math.abs( delta ) / ( 100 * ( window.devicePixelRatio | 0 ) );
+			// patched (claude-as-cad): `devicePixelRatio | 0` is 0 when the browser is zoomed out on a 1x display,
+			// which made every wheel tick an infinite zoom (camera jumped between min and max distance)
+			const normalized_delta = Math.abs( delta ) / ( 100 * Math.max( 1, window.devicePixelRatio | 0 ) );
 			return Math.pow( 0.95, scope.zoomSpeed * normalized_delta );
 
 		}

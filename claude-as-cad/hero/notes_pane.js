@@ -7,7 +7,7 @@
 // tools/export_notes.py). Hover or click a folder to open it; hover a file to preview it, click to pin.
 // While nobody is touching it, a short scripted tour walks the same beats as the clip:
 // one folder/doc per CAD object → servos.md → cadlib/aruco.py → pitfalls.md.
-import { el } from "./template.js?v=36b142ff4a";
+import { el } from "./template.js?v=68c77e28da";
 
 const BASE_URL = new URL(".", import.meta.url);
 const OPEN_AT_START = new Set(["cad/", "docs/", "cadlib/"]);
