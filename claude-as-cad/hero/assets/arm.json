@@ -1,0 +1,1785 @@
+{
+ "format": "claude-as-cad-hero-arm/v1",
+ "source": "double_to_single_compact_long.urdf",
+ "units": "m",
+ "rootLink": "world",
+ "meshes": [
+  {
+   "name": "fidcarrier_base_0_v3.stl",
+   "link": "base",
+   "role": "base",
+   "color": "#e9e9e9",
+   "vertexCount": 24,
+   "indexCount": 36,
+   "indexType": "u16",
+   "positions": [
+    0,
+    288
+   ],
+   "normals": [
+    288,
+    96
+   ],
+   "indices": [
+    384,
+    72
+   ],
+   "triMap": [
+    456,
+    24
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 12,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "st3095_M1_servo.stl",
+   "link": "base",
+   "role": "servo",
+   "color": "#2a2c30",
+   "vertexCount": 5675,
+   "indexCount": 8985,
+   "indexType": "u16",
+   "positions": [
+    480,
+    68100
+   ],
+   "normals": [
+    68580,
+    22700
+   ],
+   "indices": [
+    91280,
+    17970
+   ],
+   "triMap": [
+    109252,
+    5990
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 53520,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "st3095_M1_holder_sq.stl",
+   "link": "base",
+   "role": "holder",
+   "color": "#f2f2f2",
+   "vertexCount": 1118,
+   "indexCount": 2940,
+   "indexType": "u16",
+   "positions": [
+    115244,
+    13416
+   ],
+   "normals": [
+    128660,
+    4472
+   ],
+   "indices": [
+    133132,
+    5880
+   ],
+   "triMap": [
+    139012,
+    1960
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 5716,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "base_extender2.stl",
+   "link": "base",
+   "role": "connector",
+   "color": "#c8cdd4",
+   "vertexCount": 296,
+   "indexCount": 756,
+   "indexType": "u16",
+   "positions": [
+    140972,
+    3552
+   ],
+   "normals": [
+    144524,
+    1184
+   ],
+   "indices": [
+    145708,
+    1512
+   ],
+   "triMap": [
+    147220,
+    504
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 1826,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "st3095_M1_yoke_topplate2.stl",
+   "link": "link_1",
+   "role": "yoke",
+   "color": "#b7bcc4",
+   "vertexCount": 1752,
+   "indexCount": 5328,
+   "indexType": "u16",
+   "positions": [
+    147724,
+    21024
+   ],
+   "normals": [
+    168748,
+    7008
+   ],
+   "indices": [
+    175756,
+    10656
+   ],
+   "triMap": [
+    186412,
+    3552
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 1776,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "st3095_M2_servo.stl",
+   "link": "link_1",
+   "role": "servo",
+   "color": "#2a2c30",
+   "vertexCount": 5616,
+   "indexCount": 8994,
+   "indexType": "u16",
+   "positions": [
+    189964,
+    67392
+   ],
+   "normals": [
+    257356,
+    22464
+   ],
+   "indices": [
+    279820,
+    17988
+   ],
+   "triMap": [
+    297808,
+    5996
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 53520,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    -0.0483,
+    0.0,
+    0.001,
+    0.0,
+    -0.0289,
+    0.0,
+    0.0,
+    0.001,
+    0.00073,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "st3095_M2_holder_sq.stl",
+   "link": "link_1",
+   "role": "holder",
+   "color": "#f2f2f2",
+   "vertexCount": 2133,
+   "indexCount": 5400,
+   "indexType": "u16",
+   "positions": [
+    303804,
+    25596
+   ],
+   "normals": [
+    329400,
+    8532
+   ],
+   "indices": [
+    337932,
+    10800
+   ],
+   "triMap": [
+    348732,
+    3600
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 7982,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "st3095_M2_yoke_sq.stl",
+   "link": "link_2",
+   "role": "yoke",
+   "color": "#b7bcc4",
+   "vertexCount": 1434,
+   "indexCount": 3741,
+   "indexType": "u16",
+   "positions": [
+    352332,
+    17208
+   ],
+   "normals": [
+    369540,
+    5736
+   ],
+   "indices": [
+    375276,
+    7482
+   ],
+   "triMap": [
+    382760,
+    2494
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 2164,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    -0.00204,
+    0.0,
+    0.001,
+    0.0,
+    -0.01996,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "st3095_M3_servo.stl",
+   "link": "link_2",
+   "role": "servo",
+   "color": "#2a2c30",
+   "vertexCount": 5672,
+   "indexCount": 9000,
+   "indexType": "u16",
+   "positions": [
+    385256,
+    68064
+   ],
+   "normals": [
+    453320,
+    22688
+   ],
+   "indices": [
+    476008,
+    18000
+   ],
+   "triMap": [
+    494008,
+    6000
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 53520,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    -0.03404,
+    0.0,
+    0.001,
+    0.0,
+    0.05086,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "st3095_M3_holder_sq.stl",
+   "link": "link_2",
+   "role": "holder",
+   "color": "#f2f2f2",
+   "vertexCount": 1138,
+   "indexCount": 2844,
+   "indexType": "u16",
+   "positions": [
+    500008,
+    13656
+   ],
+   "normals": [
+    513664,
+    4552
+   ],
+   "indices": [
+    518216,
+    5688
+   ],
+   "triMap": [
+    523904,
+    1896
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 5716,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    -0.03404,
+    0.0,
+    0.001,
+    0.0,
+    0.05086,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "link2_conn_v3_long.stl",
+   "link": "link_2",
+   "role": "connector",
+   "color": "#c8cdd4",
+   "vertexCount": 24,
+   "indexCount": 36,
+   "indexType": "u16",
+   "positions": [
+    525800,
+    288
+   ],
+   "normals": [
+    526088,
+    96
+   ],
+   "indices": [
+    526184,
+    72
+   ],
+   "triMap": [
+    526256,
+    24
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 12,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "simple_servo_M4.stl",
+   "link": "link_3",
+   "role": "servo",
+   "color": "#2a2c30",
+   "vertexCount": 5055,
+   "indexCount": 9000,
+   "indexType": "u16",
+   "positions": [
+    526280,
+    60660
+   ],
+   "normals": [
+    586940,
+    20220
+   ],
+   "indices": [
+    607160,
+    18000
+   ],
+   "triMap": [
+    625160,
+    6000
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 38294,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.00311,
+    0.0,
+    0.001,
+    0.0,
+    -0.0011,
+    0.0,
+    0.0,
+    0.001,
+    0.010953,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "simple_holder_M4.stl",
+   "link": "link_3",
+   "role": "holder",
+   "color": "#f2f2f2",
+   "vertexCount": 1155,
+   "indexCount": 2538,
+   "indexType": "u16",
+   "positions": [
+    631160,
+    13860
+   ],
+   "normals": [
+    645020,
+    4620
+   ],
+   "indices": [
+    649640,
+    5076
+   ],
+   "triMap": [
+    654716,
+    1692
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 6408,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.00311,
+    0.0,
+    0.001,
+    0.0,
+    -0.0011,
+    0.0,
+    0.0,
+    0.001,
+    0.010953,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "st3095_M3_yoke_sq.stl",
+   "link": "link_3",
+   "role": "yoke",
+   "color": "#b7bcc4",
+   "vertexCount": 1450,
+   "indexCount": 3789,
+   "indexType": "u16",
+   "positions": [
+    656408,
+    17400
+   ],
+   "normals": [
+    673808,
+    5800
+   ],
+   "indices": [
+    679608,
+    7578
+   ],
+   "triMap": [
+    687188,
+    2526
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 2164,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    -0.014,
+    0.0,
+    0.001,
+    0.0,
+    0.006,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "link3_conn_trap_long.stl",
+   "link": "link_3",
+   "role": "connector",
+   "color": "#c8cdd4",
+   "vertexCount": 24,
+   "indexCount": 36,
+   "indexType": "u16",
+   "positions": [
+    689716,
+    288
+   ],
+   "normals": [
+    690004,
+    96
+   ],
+   "indices": [
+    690100,
+    72
+   ],
+   "triMap": [
+    690172,
+    24
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 12,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "st3215_J4_yoke_sq3rc2.stl",
+   "link": "link_4",
+   "role": "yoke",
+   "color": "#b7bcc4",
+   "vertexCount": 1759,
+   "indexCount": 4245,
+   "indexType": "u16",
+   "positions": [
+    690196,
+    21108
+   ],
+   "normals": [
+    711304,
+    7036
+   ],
+   "indices": [
+    718340,
+    8490
+   ],
+   "triMap": [
+    726832,
+    2830
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 4786,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "simple_servo_M5.stl",
+   "link": "link_4",
+   "role": "servo",
+   "color": "#2a2c30",
+   "vertexCount": 5097,
+   "indexCount": 8988,
+   "indexType": "u16",
+   "positions": [
+    729664,
+    61164
+   ],
+   "normals": [
+    790828,
+    20388
+   ],
+   "indices": [
+    811216,
+    17976
+   ],
+   "triMap": [
+    829192,
+    5992
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 38294,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    -0.036034,
+    0.0,
+    0.001,
+    0.0,
+    0.01399,
+    0.0,
+    0.0,
+    0.001,
+    -0.009,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "simple_holder_M5.stl",
+   "link": "link_4",
+   "role": "holder",
+   "color": "#f2f2f2",
+   "vertexCount": 1228,
+   "indexCount": 2814,
+   "indexType": "u16",
+   "positions": [
+    835184,
+    14736
+   ],
+   "normals": [
+    849920,
+    4912
+   ],
+   "indices": [
+    854832,
+    5628
+   ],
+   "triMap": [
+    860460,
+    1876
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 6408,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    -0.036034,
+    0.0,
+    0.001,
+    0.0,
+    0.01399,
+    0.0,
+    0.0,
+    0.001,
+    -0.009,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "link4_conn_ce8.stl",
+   "link": "link_4",
+   "role": "build_connector",
+   "color": "#f28a2b",
+   "vertexCount": 42,
+   "indexCount": 72,
+   "indexType": "u16",
+   "positions": [
+    862336,
+    504
+   ],
+   "normals": [
+    862840,
+    168
+   ],
+   "indices": [
+    863008,
+    144
+   ],
+   "triMap": [
+    863152,
+    48
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 24,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "simple_servo_M6.stl",
+   "link": "link_5",
+   "role": "servo",
+   "color": "#2a2c30",
+   "vertexCount": 4973,
+   "indexCount": 9000,
+   "indexType": "u16",
+   "positions": [
+    863200,
+    59676
+   ],
+   "normals": [
+    922876,
+    19892
+   ],
+   "indices": [
+    942768,
+    18000
+   ],
+   "triMap": [
+    960768,
+    6000
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 38294,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    -0.03197,
+    0.0,
+    0.001,
+    0.0,
+    0.00102,
+    0.0,
+    0.0,
+    0.001,
+    0.002,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "simple_holder_M6_horn6.stl",
+   "link": "link_5",
+   "role": "holder",
+   "color": "#f2f2f2",
+   "vertexCount": 1572,
+   "indexCount": 3564,
+   "indexType": "u16",
+   "positions": [
+    966768,
+    18864
+   ],
+   "normals": [
+    985632,
+    6288
+   ],
+   "indices": [
+    991920,
+    7128
+   ],
+   "triMap": [
+    999048,
+    2376
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 7362,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    -0.03197,
+    0.0,
+    0.001,
+    0.0,
+    0.00102,
+    0.0,
+    0.0,
+    0.001,
+    0.002,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "fidcarrier_link_6_6_t6.stl",
+   "link": "link_6",
+   "role": "base",
+   "color": "#e9e9e9",
+   "vertexCount": 24,
+   "indexCount": 36,
+   "indexType": "u16",
+   "positions": [
+    1001424,
+    288
+   ],
+   "normals": [
+    1001712,
+    96
+   ],
+   "indices": [
+    1001808,
+    72
+   ],
+   "triMap": [
+    1001880,
+    24
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 12,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "finray_fin_fixed.stl",
+   "link": "finray_palm",
+   "role": "fin",
+   "color": "#e0312b",
+   "vertexCount": 1200,
+   "indexCount": 3273,
+   "indexType": "u16",
+   "positions": [
+    1001904,
+    14400
+   ],
+   "normals": [
+    1016304,
+    4800
+   ],
+   "indices": [
+    1021104,
+    6546
+   ],
+   "triMap": [
+    1027652,
+    2182
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 3480,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "finray_brstub_horn.stl",
+   "link": "finray_palm",
+   "role": "holder",
+   "color": "#f2f2f2",
+   "vertexCount": 1309,
+   "indexCount": 3360,
+   "indexType": "u16",
+   "positions": [
+    1029836,
+    15708
+   ],
+   "normals": [
+    1045544,
+    5236
+   ],
+   "indices": [
+    1050780,
+    6720
+   ],
+   "triMap": [
+    1057500,
+    2240
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 11500,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "finray_holder_chim3.stl",
+   "link": "finray_palm",
+   "role": "holder",
+   "color": "#f2f2f2",
+   "vertexCount": 2309,
+   "indexCount": 5400,
+   "indexType": "u16",
+   "positions": [
+    1059740,
+    27708
+   ],
+   "normals": [
+    1087448,
+    9236
+   ],
+   "indices": [
+    1096684,
+    10800
+   ],
+   "triMap": [
+    1107484,
+    3600
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 9910,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "finray_servo_baked.stl",
+   "link": "finray_palm",
+   "role": "servo",
+   "color": "#2a2c30",
+   "vertexCount": 5086,
+   "indexCount": 8994,
+   "indexType": "u16",
+   "positions": [
+    1111084,
+    61032
+   ],
+   "normals": [
+    1172116,
+    20344
+   ],
+   "indices": [
+    1192460,
+    17988
+   ],
+   "triMap": [
+    1210448,
+    5996
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 38294,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "elp_mount_ce3.stl",
+   "link": "finray_palm",
+   "role": "base",
+   "color": "#e9e9e9",
+   "vertexCount": 728,
+   "indexCount": 1692,
+   "indexType": "u16",
+   "positions": [
+    1216444,
+    8736
+   ],
+   "normals": [
+    1225180,
+    2912
+   ],
+   "indices": [
+    1228092,
+    3384
+   ],
+   "triMap": [
+    1231476,
+    1128
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 5208,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "elp_board_ce3.stl",
+   "link": "finray_palm",
+   "role": "pcb",
+   "color": "#23402d",
+   "vertexCount": 2465,
+   "indexCount": 5400,
+   "indexType": "u16",
+   "positions": [
+    1232604,
+    29580
+   ],
+   "normals": [
+    1262184,
+    9860
+   ],
+   "indices": [
+    1272044,
+    10800
+   ],
+   "triMap": [
+    1282844,
+    3600
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 13831,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "palm_cam_conn2.stl",
+   "link": "finray_palm",
+   "role": "connector",
+   "color": "#c8cdd4",
+   "vertexCount": 48,
+   "indexCount": 84,
+   "indexType": "u16",
+   "positions": [
+    1286444,
+    576
+   ],
+   "normals": [
+    1287020,
+    192
+   ],
+   "indices": [
+    1287212,
+    168
+   ],
+   "triMap": [
+    1287380,
+    56
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 28,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "finray_yoke_baked.stl",
+   "link": "finray_fin_moving",
+   "role": "yoke",
+   "color": "#b7bcc4",
+   "vertexCount": 2220,
+   "indexCount": 5397,
+   "indexType": "u16",
+   "positions": [
+    1287436,
+    26640
+   ],
+   "normals": [
+    1314076,
+    8880
+   ],
+   "indices": [
+    1322956,
+    10794
+   ],
+   "triMap": [
+    1333752,
+    3598
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 6420,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "finray_brstub_mov.stl",
+   "link": "finray_fin_moving",
+   "role": "holder",
+   "color": "#f2f2f2",
+   "vertexCount": 1090,
+   "indexCount": 3018,
+   "indexType": "u16",
+   "positions": [
+    1337352,
+    13080
+   ],
+   "normals": [
+    1350432,
+    4360
+   ],
+   "indices": [
+    1354792,
+    6036
+   ],
+   "triMap": [
+    1360828,
+    2012
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 10546,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "finray_fin_moving.stl",
+   "link": "finray_fin_moving",
+   "role": "fin",
+   "color": "#e0312b",
+   "vertexCount": 1211,
+   "indexCount": 3348,
+   "indexType": "u16",
+   "positions": [
+    1362840,
+    14532
+   ],
+   "normals": [
+    1377372,
+    4844
+   ],
+   "indices": [
+    1382216,
+    6696
+   ],
+   "triMap": [
+    1388912,
+    2232
+   ],
+   "triMapType": "u16",
+   "stlTriangles": 3480,
+   "visualMatrix": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "name": "highlight_face1",
+   "link": "link_4",
+   "role": "highlight",
+   "color": "#22c4f0",
+   "vertexCount": 8,
+   "indexCount": 24,
+   "indexType": "u16",
+   "positions": [
+    1391144,
+    96
+   ],
+   "normals": [
+    1391240,
+    32
+   ],
+   "indices": [
+    1391272,
+    48
+   ]
+  },
+  {
+   "name": "highlight_face2",
+   "link": "link_4",
+   "role": "highlight",
+   "color": "#22c4f0",
+   "vertexCount": 132,
+   "indexCount": 414,
+   "indexType": "u16",
+   "positions": [
+    1391320,
+    1584
+   ],
+   "normals": [
+    1392904,
+    528
+   ],
+   "indices": [
+    1393432,
+    828
+   ]
+  }
+ ],
+ "joints": [
+  {
+   "name": "world_to_base",
+   "type": "fixed",
+   "parent": "world",
+   "child": "base",
+   "xyz": [
+    0.0,
+    0.0,
+    0.033
+   ],
+   "rpy": [
+    1.5708,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    0,
+    0,
+    1
+   ],
+   "limit": null
+  },
+  {
+   "name": "J1",
+   "type": "revolute",
+   "parent": "base",
+   "child": "link_1",
+   "xyz": [
+    -0.01412,
+    0.0631,
+    0.0
+   ],
+   "rpy": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "limit": [
+    -2.0,
+    2.0
+   ]
+  },
+  {
+   "name": "J2",
+   "type": "revolute",
+   "parent": "link_1",
+   "child": "link_2",
+   "xyz": [
+    0.00174,
+    0.05286,
+    0.00073
+   ],
+   "rpy": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "limit": [
+    -2.079,
+    1.571
+   ]
+  },
+  {
+   "name": "J3",
+   "type": "revolute",
+   "parent": "link_2",
+   "child": "link_3",
+   "xyz": [
+    0.03646,
+    0.21846,
+    0.0
+   ],
+   "rpy": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "limit": [
+    -1.559,
+    1.571
+   ]
+  },
+  {
+   "name": "J4",
+   "type": "revolute",
+   "parent": "link_3",
+   "child": "link_4",
+   "xyz": [
+    0.25011,
+    0.0,
+    0.010953
+   ],
+   "rpy": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "limit": [
+    -1.571,
+    1.571
+   ]
+  },
+  {
+   "name": "J5",
+   "type": "revolute",
+   "parent": "link_4",
+   "child": "link_5",
+   "xyz": [
+    0.037966,
+    0.05349,
+    -0.009
+   ],
+   "rpy": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "limit": [
+    -1.571,
+    1.571
+   ]
+  },
+  {
+   "name": "J6",
+   "type": "revolute",
+   "parent": "link_5",
+   "child": "link_6",
+   "xyz": [
+    0.01833,
+    -0.05398,
+    0.002
+   ],
+   "rpy": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    1.0,
+    0.0,
+    -0.0
+   ],
+   "limit": [
+    -2.094,
+    2.094
+   ]
+  },
+  {
+   "name": "J6_finray_mount",
+   "type": "fixed",
+   "parent": "link_6",
+   "child": "finray_palm",
+   "xyz": [
+    0.080729,
+    0.030518,
+    0.052437
+   ],
+   "rpy": [
+    -3.141589,
+    -4e-06,
+    -1.570796
+   ],
+   "axis": [
+    0,
+    0,
+    1
+   ],
+   "limit": null
+  },
+  {
+   "name": "jaw",
+   "type": "revolute",
+   "parent": "finray_palm",
+   "child": "finray_fin_moving",
+   "xyz": [
+    0.03829,
+    0.05353,
+    0.02008
+   ],
+   "rpy": [
+    -1.5708,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "limit": [
+    -1.7208,
+    0.3
+   ]
+  }
+ ],
+ "targets": {
+  "link": "link_4",
+  "loftAxis": [
+   0,
+   1,
+   0
+  ],
+  "range": [
+   0.0240001163482666,
+   0.04391008377075195
+  ],
+  "faces": [
+   {
+    "mesh": "st3215_J4_yoke_sq3rc2.stl",
+    "highlight": "highlight_face1",
+    "point": [
+     -2.675056457518074e-07,
+     0.0240001163482666,
+     -0.008854374885559083
+    ],
+    "normal": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "side": "+Y",
+    "triangles": 8,
+    "triIndex": 4351,
+    "visualOrigin": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "mesh": "simple_holder_M5.stl",
+    "highlight": "highlight_face2",
+    "point": [
+     0.005622835397720337,
+     0.04391008377075195,
+     -0.00847639560699463
+    ],
+    "normal": [
+     0.0,
+     -1.0,
+     0.0
+    ],
+    "side": "-Y",
+    "triangles": 138,
+    "triIndex": 1486,
+    "visualOrigin": [
+     -0.036034,
+     0.01399,
+     -0.009
+    ]
+   }
+  ]
+ },
+ "tcp": {
+  "link": "finray_palm",
+  "point": [
+   0.04802848723117158,
+   -0.002441737066945216,
+   0.0152882078669172
+  ],
+  "approach": [
+   0.5272957068415072,
+   -0.7471808251675673,
+   -0.40457391419668726
+  ]
+ },
+ "triangles": 44036,
+ "binBytes": 1394260,
+ "binHash": "d23ac41d3966"
+}
