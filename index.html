@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,400;1,500&family=Inter:wght@400..600&display=swap">
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -18,15 +18,15 @@
       <div class="eyebrow">PhD Student · USC</div>
       <h1>Cameron Smith</h1>
       <p>
-        I'm working on making robot policies less spatially dumb and more
-        3D-aware. I'm a PhD student at USC in Yue Wang's
+        I'm working on making robot policies less <em class="s">s</em>patially
+        dumb and more 3D-aware. I'm a PhD student at USC in Yue Wang's
         <a href="https://usc-gvl.github.io">group</a>. My previous work was
         getting AI to better understand the 3D world for data-efficient
         scene representations (work mostly done in Vincent Sitzmann's
         <a href="https://scenerepresentations.org">Scene Representation Group</a>).
       </p>
       <nav class="hero-links" aria-label="Contact links">
-        <a href="mailto:omid.smith.cameron@gmail.com">✉ Email</a>
+        <a href="mailto:omid.smith.cameron@gmail.com">Email</a>
         <a href="https://scholar.google.com/citations?user=zrZNo3wAAAAJ&hl=en&oi=sra">Google Scholar</a>
         <a href="https://github.com/cameronosmith">GitHub</a>
       </nav>
@@ -38,14 +38,36 @@
 </header>
 
 <main class="container section">
-  <h2 id="publications">Publications</h2>
+  <h2 id="recent" data-n="01">Recent</h2>
   <ul class="pub-list">
 
     <li class="pub">
-      <div class="pub-media">
+      <a href="https://omidlab.net/claude-as-cad-hero/index.html" class="pub-media-link" target="_blank" rel="noopener"><div class="pub-media">
+        <video src="img/claude-as-cad/thumb.mp4"
+               poster="img/claude-as-cad/thumb.jpg"
+               autoplay loop muted playsinline preload="metadata"></video>
+      </div></a>
+      <div class="pub-body">
+        <h3 class="pub-title">claude-as-cad</h3>
+        <div class="pub-authors">
+          A browser-based CAD environment Claude drives directly — click to
+          reference, block it out, watch it build.
+        </div>
+        <div class="pub-meta">
+          <span class="pub-tag pub-tag-project">Project</span>
+          <div class="pub-links">
+            <a href="https://omidlab.net/claude-as-cad-hero/index.html"
+               target="_blank" rel="noopener">Project page →</a>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="pub">
+      <a href="bind/" class="pub-media-link"><div class="pub-media">
         <video src="bind/vid/teaser.mp4"
                autoplay loop muted playsinline preload="metadata"></video>
-      </div>
+      </div></a>
       <div class="pub-body">
         <h3 class="pub-title">BIND: Binding 3D Robot Actions to 2D Image Features</h3>
         <div class="pub-authors">
@@ -57,6 +79,7 @@
           Sergey Zakharov
         </div>
         <div class="pub-meta">
+          <span class="pub-tag pub-tag-research">Research</span>
           <span class="pub-venue">In submission</span>
           <div class="pub-links">
             <a href="bind/">Project page →</a>
@@ -66,10 +89,10 @@
     </li>
 
     <li class="pub">
-      <div class="pub-media">
+      <a href="fiducial_exoskeleton/index.html" class="pub-media-link"><div class="pub-media">
         <video src="fiducial_exoskeleton/vid/cam_pose_anim.mp4"
                autoplay loop muted playsinline preload="metadata"></video>
-      </div>
+      </div></a>
       <div class="pub-body">
         <h3 class="pub-title">Fiducial Exoskeletons: Image-Centric Robot State Estimation</h3>
         <div class="pub-authors">
@@ -79,6 +102,7 @@
           <a href="https://yuewang.xyz">Yue Wang</a>
         </div>
         <div class="pub-meta">
+          <span class="pub-tag pub-tag-research">Research</span>
           <span class="pub-venue">arXiv</span>
           <div class="pub-links">
             <a href="fiducial_exoskeleton/index.html">Project page →</a>
@@ -88,10 +112,10 @@
     </li>
 
     <li class="pub">
-      <div class="pub-media">
+      <a href="sire/index.html" class="pub-media-link"><div class="pub-media">
         <video src="sire/vid_screengrabs/dog_vid2.mov"
                autoplay loop muted playsinline preload="metadata"></video>
-      </div>
+      </div></a>
       <div class="pub-body">
         <h3 class="pub-title">SIRE: SE(3) Intrinsic Rigidity Embeddings</h3>
         <div class="pub-authors">
@@ -103,6 +127,7 @@
           <a href="https://yuewang.xyz">Yue Wang</a>
         </div>
         <div class="pub-meta">
+          <span class="pub-tag pub-tag-research">Research</span>
           <span class="pub-venue">TMLR</span>
           <div class="pub-links">
             <a href="sire/index.html">Project page →</a>
@@ -112,10 +137,10 @@
     </li>
 
     <li class="pub">
-      <div class="pub-media">
+      <a href="flowmap/index.html" class="pub-media-link"><div class="pub-media">
         <video src="flowmap/static/videos/overview_video.mp4"
                autoplay loop muted playsinline preload="metadata"></video>
-      </div>
+      </div></a>
       <div class="pub-body">
         <h3 class="pub-title">FlowMap: High-Quality Camera Poses, Intrinsics, and Depth via Gradient Descent</h3>
         <div class="pub-authors">
@@ -125,6 +150,7 @@
           <a href="https://www.vincentsitzmann.com/">Vincent Sitzmann</a>
         </div>
         <div class="pub-meta">
+          <span class="pub-tag pub-tag-research">Research</span>
           <span class="pub-venue">3DV</span>
           <div class="pub-links">
             <a href="flowmap/index.html">Project page →</a>
@@ -134,10 +160,10 @@
     </li>
 
     <li class="pub">
-      <div class="pub-media">
+      <a href="flowcam/index.html" class="pub-media-link"><div class="pub-media">
         <video src="img/hydrant_teaser.mp4"
                autoplay loop muted playsinline preload="metadata"></video>
-      </div>
+      </div></a>
       <div class="pub-body">
         <h3 class="pub-title">FlowCam: Training Generalizable 3D Radiance Fields without Camera Poses via Pixel-Aligned Scene Flow</h3>
         <div class="pub-authors">
@@ -147,6 +173,7 @@
           <a href="https://www.vincentsitzmann.com/">Vincent Sitzmann</a>
         </div>
         <div class="pub-meta">
+          <span class="pub-tag pub-tag-research">Research</span>
           <span class="pub-venue">NeurIPS</span>
           <div class="pub-links">
             <a href="flowcam/index.html">Project page →</a>
@@ -156,9 +183,9 @@
     </li>
 
     <li class="pub">
-      <div class="pub-media">
+      <a href="colf/index.html" class="pub-media-link"><div class="pub-media">
         <img src="img/thumbmanip.gif" alt="Object light-fields teaser">
-      </div>
+      </div></a>
       <div class="pub-body">
         <h3 class="pub-title">Unsupervised Discovery and Composition of Object Light Fields</h3>
         <div class="pub-authors">
@@ -171,6 +198,7 @@
           <a href="https://www.vincentsitzmann.com/">Vincent Sitzmann</a>
         </div>
         <div class="pub-meta">
+          <span class="pub-tag pub-tag-research">Research</span>
           <span class="pub-venue">TMLR</span>
           <div class="pub-links">
             <a href="colf/index.html">Project page →</a>
