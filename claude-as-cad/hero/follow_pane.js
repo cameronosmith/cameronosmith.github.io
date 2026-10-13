@@ -8,8 +8,8 @@
 // J1–J5 toward a camera-facing work plane), drag to orbit, click then scroll to zoom. The arm eases
 // home when the cursor leaves the window.
 import * as THREE from "./vendor/three.module.min.js";
-import { OrbitControls } from "./vendor/OrbitControls.js?v=68c77e28da";
-import { loadArm } from "./arm.js?v=68c77e28da";
+import { OrbitControls } from "./vendor/OrbitControls.js?v=bdf89f74e3";
+import { loadArm } from "./arm.js?v=bdf89f74e3";
 
 const BASE_URL = new URL(".", import.meta.url);
 const REACH = 0.36; // a little inside full extension, so the arm never has to lock straight
@@ -67,11 +67,23 @@ export async function mountFollowViewer(root, options = {}) {
   const center = box.getCenter(new THREE.Vector3());
   const size = box.getSize(new THREE.Vector3()).length();
   const dir = new THREE.Vector3(1.0, -1.35, 0.72).normalize();
-  // aim a little left of and below the arm, so it sits right and up in the frame with room to reach
-  // left (toward the text) without being cropped; pulled back so the whole reach fits
-  const right = new THREE.Vector3().crossVectors(dir.clone().negate(), new THREE.Vector3(0, 0, 1)).normalize();
-  const target = center.clone().addScaledVector(right, -size * 0.14).add(new THREE.Vector3(0, 0, -size * 0.06));
+  // Frame the arm's whole workspace, not its current pose: a sphere around the shoulder that holds
+  // every place the IK can send the gripper (REACH + the gripper/wrist beyond the TCP) and the base.
+  // The camera distance is refit on resize so neither side crops when the arm swings left or right.
+  const shoulderHome = arm.jointWorld("J2").clone();
+  const baseLow = new THREE.Vector3(shoulderHome.x, shoulderHome.y, box.min.z);
+  const wsCenter = shoulderHome.clone().lerp(baseLow, 0.15);
+  const wsRadius = Math.max(REACH + 0.075, wsCenter.distanceTo(baseLow) + 0.02);
+  const target = wsCenter.clone();
+  function fitWorkspace() {
+    const vHalf = THREE.MathUtils.degToRad(camera.fov / 2);
+    const hHalf = Math.atan(Math.tan(vHalf) * camera.aspect);
+    const d = (wsRadius / Math.sin(Math.min(vHalf, hHalf))) * 1.12; // margin for the soft edge fade
+    camera.position.copy(target).addScaledVector(dir, d);
+    camera.lookAt(target);
+  }
   camera.position.copy(target).addScaledVector(dir, size * 2.3);
+  let userMoved = false; // once the visitor orbits/zooms, resizes keep their view
   const controls = new OrbitControls(camera, canvas);
   controls.target.copy(target);
   controls.enableDamping = true;
@@ -177,8 +189,13 @@ export async function mountFollowViewer(root, options = {}) {
   function resize() {
     const r = root.getBoundingClientRect();
     renderer.setSize(Math.max(1, Math.round(r.width)), Math.max(1, Math.round(r.height)), false);
-    camera.aspect = Math.max(1, r.width) / Math.max(1, r.height);
+    // options.frameWidth < 1: frame the arm in the left part of a wider canvas, so it can reach over what sits to its right
+    const fw = Math.min(1, options.frameWidth || 1);
+    const w = Math.max(1, r.width), h = Math.max(1, r.height);
+    camera.aspect = (w * fw) / h;
+    if (fw < 1) camera.setViewOffset(w * fw, h, 0, 0, w, h); else camera.clearViewOffset();
     camera.updateProjectionMatrix();
+    if (!userMoved) fitWorkspace();
     dirty = true;
     kick();
   }
@@ -203,7 +220,7 @@ export async function mountFollowViewer(root, options = {}) {
   }
   controls.addEventListener("change", kick);
   // freeze the IK while the view is being dragged; resume from wherever the gripper is afterwards
-  controls.addEventListener("start", () => { orbiting = true; vel.set(0, 0, 0); });
+  controls.addEventListener("start", () => { orbiting = true; userMoved = true; vel.set(0, 0, 0); });
   controls.addEventListener("end", () => {
     orbiting = false;
     following = false; // the next cursor move re-seeds the spring at the current TCP (new view, new work plane)

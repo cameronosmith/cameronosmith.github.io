@@ -8,7 +8,7 @@
 // panels on the right. Click a stage to jump to it, click a tab to read any agent's transcript.
 // The chats are re-enacted from the real sessions (strings as in the video); it auto-plays
 // cad → calib_and_data_recording → model_training → deploy_model and loops.
-import { el } from "./template.js?v=68c77e28da";
+import { el } from "./template.js?v=bdf89f74e3";
 
 const BASE_URL = new URL(".", import.meta.url);
 const media = (name) => new URL(`assets/ma/${name}`, BASE_URL).href;
@@ -24,7 +24,7 @@ const AGENTS = [
 // counter (a tool line whose number ticks up) | handoff (sends the next agent's first message).
 const STAGES = [
   {
-    title: "CAD is only the first step",
+    title: "CAD is only the first step in the robotics stack",
     // ma_cad.mp4 = the editor side of the original render, its four prompt overlays cut out, at 2×.
     // Source segments [0,4.7] [9.0,27.2] [31.1,43.5] [48.6,58.8] s; `src(t)` maps an original-render
     // time to this clip, so every line lands when it did in the render. Prompts are typed while the

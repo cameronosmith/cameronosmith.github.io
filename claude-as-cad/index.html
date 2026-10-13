@@ -5,12 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>claude-as-cad</title>
 <meta name="description" content="claude-as-cad: a claude-native CAD software for actually building things. Instead of just using language to prompt CAD-coding agents, it adds click-to-reference, a 3D primitive editor, and hierarchical note records.">
-<link rel="icon" href="img/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="img/favicon_32.png">
-<link rel="icon" type="image/png" sizes="64x64" href="img/favicon_64.png">
-<link rel="apple-touch-icon" href="img/favicon_180.png">
+<!-- link previews (X, iMessage, Slack, Discord, LinkedIn); image is 1200x630 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="claude-as-cad">
+<meta property="og:title" content="claude-as-cad">
+<meta property="og:description" content="A claude-native CAD software for actually building things: click-to-reference, a 3D primitive editor, and hierarchical notes for your code-CAD agent.">
+<meta property="og:url" content="https://cameronosmith.github.io/claude-as-cad/">
+<meta property="og:image" content="https://cameronosmith.github.io/claude-as-cad/img/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="claude-as-cad: clicking a face of a robot arm in the CAD viewer copies its reference for the Claude Code chat">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="claude-as-cad">
+<meta name="twitter:description" content="A claude-native CAD software for actually building things: click-to-reference, a 3D primitive editor, and hierarchical notes for your code-CAD agent.">
+<meta name="twitter:image" content="https://cameronosmith.github.io/claude-as-cad/img/og-card.png">
+<meta name="twitter:image:alt" content="claude-as-cad: clicking a face of a robot arm in the CAD viewer copies its reference for the Claude Code chat">
+<link rel="icon" href="img/favicon.ico?v=3" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon_32.png?v=3">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon_64.png?v=3">
+<link rel="apple-touch-icon" href="img/favicon_180.png?v=3">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,400;1,500&family=Inter:wght@400..600&display=swap">
-<link rel="stylesheet" href="hero/hero.css?v=68c77e28da">
+<link rel="stylesheet" href="hero/hero.css?v=bdf89f74e3">
 <style>
   :root {
     --ground: #fafafa;
@@ -79,9 +94,19 @@
   sup.fn, .footnote sup { color: var(--accent); font-size: 0.75em; margin-left: 1px; }
   .footnote { color: var(--muted); font-size: 12px; margin: 18px 0 0; }
   section.why { max-width: 640px; padding: 18px 0 0; }
-  .top-grid { display: grid; grid-template-columns: minmax(0, 640px) minmax(0, 1fr); gap: 40px; align-items: center; }
-  .follow-wrap { padding-top: 40px; }
-  .cac-follow { position: relative; height: clamp(320px, 30vw, 440px); font: 450 14px/20.5px var(--sans); }
+  .top-grid { display: grid; grid-template-columns: minmax(0, 640px) minmax(0, 1fr); gap: 40px; align-items: start; }
+  /* arm and X post side by side, same height; the arm overlaps the post's left edge and draws on top of it */
+  .follow-wrap { align-self: start; position: relative; }
+  .follow-wrap .cac-follow { position: absolute; left: 0; top: 0; width: 100%; z-index: 2; }
+  .follow-wrap .cac-follow.pass canvas { pointer-events: none; } /* cursor over the post: clicks go to the post */
+  .follow-wrap .cac-follow canvas { -webkit-mask-image: radial-gradient(ellipse 90% 85% at 32% 50%, #000 75%, transparent 100%); mask-image: radial-gradient(ellipse 90% 85% at 32% 50%, #000 75%, transparent 100%); }
+  .overview { margin: 0 0 0 44%; position: relative; z-index: 1; }
+  .overview .twitter-video, .overview .twitter-tweet { margin: 0 auto !important; }
+  .overview .x-fit { transform-origin: top center; }
+  .overview blockquote.twitter-video { border: 1px solid var(--rule); border-radius: 10px; background: var(--card); padding: 14px 16px; color: var(--text-2); font-size: 13px; }
+  .overview blockquote.twitter-video a { color: var(--ink); }
+  .overview figcaption { color: var(--muted); font-size: 12px; margin-top: 6px; text-align: center; }
+  .cac-follow { position: relative; height: clamp(280px, 25vw, 360px); font: 450 14px/20.5px var(--sans); }
   .cac-follow .cac-toast { max-width: min(320px, 92%); }
   .cac-follow canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; outline: none;
     -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 70%, transparent 100%); mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 70%, transparent 100%); }
@@ -163,12 +188,13 @@
       <a href="#arm"><span class="n">05</span>A whole arm</a>
       <div class="toc-gap"></div>
       <a href="#start"><span class="n">06</span>Quick start</a>
-      <a href="#gallery"><span class="n">07</span>Gallery</a>
+      <a href="#working"><span class="n">07</span>Working with agents</a>
+      <a href="#gallery"><span class="n">08</span>Gallery</a>
     </nav>
   </aside>
   <main>
   <header class="top" id="top">
-    <a class="brand" href="#top"><img class="logo" src="img/logo_mark.webp?v=2" alt="" width="54" height="52"><span class="name">claude-as-cad</span> <span class="tag">· a claude-native CAD software for actually building things</span></a>
+    <a class="brand" href="#top"><img class="logo" src="img/logo_mark.webp?v=3" alt="" width="54" height="52"><span class="name">claude-as-cad</span> <span class="tag">· a claude-native CAD software for actually building things</span></a>
     <nav class="top">
       <a href="#reference">How it works</a>
       <a href="#start">Quick start</a>
@@ -195,8 +221,8 @@
   </section>
 
   <section class="why">
-    <blockquote>The main failure mode of using text-based prompting for code-CAD agents is ambiguity in coordinates&mdash;explaining
-      where to place an object, or even identifying which part you mean, via text is imprecise and error-prone.</blockquote>
+    <blockquote>The main failure mode of using text-based prompting for code-CAD agents is ambiguity in specifying coordinates&mdash;explaining
+      where to place an object, or even identifying which object part you mean, via text is imprecise and error-prone.</blockquote>
     <p>Plain-text CAD-prompting fails because it doesn’t support sub-part pointing, visual sketching, or long-term organized memory and rules
       across builds. claude-as-cad fixes this with <a href="#reference">click-to-reference</a> spatial pointing, a
       <a href="#editor">3D primitive editor</a>, and <a href="#notes">hierarchical build notes</a> that survive chat compactifications.</p>
@@ -205,6 +231,11 @@
     </div>
     <div class="follow-wrap">
       <div id="cac-follow" class="cac-follow"></div>
+      <figure class="overview">
+        <!-- X's own video embed (publish.x.com oEmbed, widget_type=video); widgets.js loads when it's near -->
+        <div class="x-fit"><blockquote class="twitter-video" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">introducing claude-as-cad<br><br>i&#39;ve been actually building robots and parts without knowing any CAD, using a claude-as-cad recipe -- here&#39;s how and you can too</p>&mdash; Cameron Smith (@omcamsmith) <a href="https://x.com/omcamsmith/status/2110050628169003446?ref_src=twsrc%5Etfw">Watch the 3-minute overview on X</a></blockquote></div>
+        <figcaption>3-minute overview video</figcaption>
+      </figure>
     </div>
   </div>
 
@@ -298,10 +329,40 @@ npm run serve -- --dir /path/to/your/cad --port 4178</code></pre>
     <p>Then open <code>http://127.0.0.1:4178/?file=robots/my_robot.urdf</code>. The viewer also opens STEP, STL, 3MF, GLB,
       DXF, G-code, SDF and SRDF files; the editor panel appears for URDF robots. The server binds to localhost by default,
       and the edit log only accepts requests from the same machine.</p>
+    <p class="lead-start">Then make it yours.</p>
+    <p>claude-as-cad is a recipe, not a finished product: a starting point you and your agent keep reshaping to fit your builds. The
+      editor ships with boxes and copies of existing parts because that's what my builds needed. If yours need spheres or cylinders,
+      a fillet tool, a measuring tape, or anything else, just prompt your agent to add it to the interface &mdash; it's a small web app
+      your agent can read and change like any other code.</p>
+  </section>
+
+  <section class="part narrow" id="working">
+    <div class="chapter"><h2>Working with agents</h2><span class="rule"></span><span class="num">07</span></div>
+    <p class="lead-start">The notes, roles, and capture rule live in plain files, so they work with any agent app and any number of agents.</p>
+    <p>Start your project from the template in the repo. Every agent reads <code>AGENTS.md</code>, which holds the roles, what to
+      read before working, and the capture rule: when you confirm something worked or correct the agent, it records the learning in
+      the right note before moving on, so you never have to say &ldquo;make a note of this.&rdquo;</p>
+    <pre class="card"><span class="label">templates/robot-project</span><code>AGENTS.md          # roles, read-first order, capture rule
+CLAUDE.md          # "@AGENTS.md" for Claude Code
+docs/              # pitfalls, design index, cross-build notes
+builds/
+  arm/AGENTS.md    # one folder (and builder) per build
+  arm/NOTES.md
+agents/            # optional inboxes if nothing else carries messages</code></pre>
+    <p>One agent works fine: it plays every role. Once you're past the first build, here's how I run it:</p>
+    <ul class="points">
+      <li><b>Multiple agents per role, running at once</b> &mdash; an interface agent for the viewer, an organizer that owns the notes
+        and design index, and a builder per build category, forked into narrower specialists as a category grows.</li>
+      <li><b>Talking to each other in whatever setup you already use</b> &mdash; separate sessions, your agent app's background agents,
+        tmux panes, or plain inbox files. No new infrastructure.</li>
+      <li><b>Each agent stays in its lane</b> &mdash; builders message the builder that owns a folder instead of editing it, and only the
+        organizer restructures the notes.</li>
+    </ul>
+    <p>The full guide is in <a href="https://github.com/cameronosmith/claude-as-cad/blob/main/docs/working-with-agents.md">docs/working-with-agents.md</a>.</p>
   </section>
 
   <section class="part" id="gallery">
-    <div class="chapter"><h2>Some robot prototypes I built with claude-as-cad</h2><span class="rule"></span><span class="num">07</span></div>
+    <div class="chapter"><h2>Some robot prototypes I built with claude-as-cad</h2><span class="rule"></span><span class="num">08</span></div>
     <p class="gallery-lead">Each build's CAD next to the real thing. Drag a model to orbit it; double-click to watch it assemble again. Some models might look fragmented but it’s just for faster loading here.</p>
     <div id="cac-gallery"></div>
   </section>
@@ -311,21 +372,21 @@ npm run serve -- --dir /path/to/your/cad --port 4178</code></pre>
     <a href="https://github.com/cameronosmith/claude-as-cad">GitHub</a> ·
     built on <a href="https://github.com/earthtojake/text-to-cad">text-to-cad</a>'s CAD Viewer (MIT, Thompson Labs LLC) ·
     rendering by <a href="https://threejs.org/">three.js</a> ·
-    type: Inter &amp; EB Garamond<div class="devnote">Dev preview of the interactive page (cad_editor_web_animation).</div>
+    type: Inter &amp; EB Garamond
   </footer>
   </main>
 </div>
 <script type="module">
-  import { lazyMountClaudeCadHero, lazyMountEditorPane, lazyMountNotesPane, lazyMountMultiAgentPane, lazyMountArmBuildPane, lazyMountGallery, lazyMountFollowViewer } from "./hero/loader.js?v=68c77e28da";
-  import { mountTocArm } from "./hero/toc_arm.js?v=68c77e28da";
+  import { lazyMountClaudeCadHero, lazyMountEditorPane, lazyMountNotesPane, lazyMountMultiAgentPane, lazyMountArmBuildPane, lazyMountGallery, lazyMountFollowViewer } from "./hero/loader.js?v=bdf89f74e3";
+  import { mountTocArm } from "./hero/toc_arm.js?v=bdf89f74e3";
   const debug = location.search.includes("debug");
   const $ = (id) => document.getElementById(id);
-  if (matchMedia("(min-width: 1001px)").matches) lazyMountFollowViewer($("cac-follow"), { debug });
-  lazyMountClaudeCadHero($("cac-hero"), { fallbackVideo: "/claude-as-cad/media/click_to_reference.mp4", fallbackPoster: "/claude-as-cad/media/click_to_reference.jpg", debug });
-  lazyMountEditorPane($("cac-editor"), { fallbackVideo: "/claude-as-cad/media/primitive_editor.mp4", fallbackPoster: "/claude-as-cad/media/primitive_editor.jpg", debug });
+  if (matchMedia("(min-width: 1001px)").matches) lazyMountFollowViewer($("cac-follow"), { debug, frameWidth: 0.44 });
+  lazyMountClaudeCadHero($("cac-hero"), { fallbackVideo: "media/click_to_reference.mp4", fallbackPoster: "media/click_to_reference.jpg", debug });
+  lazyMountEditorPane($("cac-editor"), { fallbackVideo: "media/primitive_editor.mp4", fallbackPoster: "media/primitive_editor.jpg", debug });
   lazyMountNotesPane($("cac-notes"), { debug });
   lazyMountMultiAgentPane($("cac-agents"), { debug });
-  lazyMountArmBuildPane($("cac-armbuild"), { fallbackVideo: "/claude-as-cad/media/arm_build.mp4", fallbackPoster: "/claude-as-cad/media/arm_build.jpg", debug });
+  lazyMountArmBuildPane($("cac-armbuild"), { fallbackVideo: "media/arm_build.mp4", fallbackPoster: "media/arm_build.jpg", debug });
   // Gallery sub-descriptions: one short line under each build's name (leave "" to show the name only).
   lazyMountGallery($("cac-gallery"), { debug, descriptions: {
     arm: "A larger 6DOF robot arm — feetech sts3095 for first 3 joints and sts3250s for last 4 joints\nIterating on this to make it more aesthetic but it’s my main experiments driver",
@@ -336,6 +397,35 @@ npm run serve -- --dir /path/to/your/cad --port 4178</code></pre>
     lift: "a test of a small rack and pinion lift"
   } });
   mountTocArm(document.querySelector(".toc"));
+  // X video embed: load X's widget script only once the intro's right column is near the screen
+  const xEmbed = document.querySelector(".overview .twitter-video");
+  if (xEmbed && matchMedia("(min-width: 1001px)").matches) {
+    const load = () => { const sc = document.createElement("script"); sc.src = "https://platform.twitter.com/widgets.js"; sc.async = true; sc.charset = "utf-8"; document.body.appendChild(sc); };
+    new IntersectionObserver((entries, io) => { if (entries.some((e) => e.isIntersecting)) { io.disconnect(); load(); } }, { rootMargin: "300px 0px" }).observe(xEmbed);
+    // Scale the embed down so the right column never runs past the intro text (X sets its own height).
+    const fit = document.querySelector(".overview .x-fit");
+    const text = document.querySelector(".top-text");
+    const cap = document.querySelector(".overview figcaption");
+    const arm = document.getElementById("cac-follow");
+    const refit = () => {
+      fit.style.transform = "";
+      fit.style.marginBottom = "";
+      const h = fit.offsetHeight;
+      if (!h) return;
+      const room = text.getBoundingClientRect().bottom - fit.getBoundingClientRect().top - (cap ? cap.offsetHeight + 6 : 0);
+      const k = Math.max(0.3, Math.min(1, room / h));
+      fit.style.transform = `scale(${k})`;
+      fit.style.marginBottom = `${-(1 - k) * h}px`; // give back the space the scale removed
+      arm.style.height = `${Math.round(k * h)}px`; // arm matches the post's height beside it
+    };
+    new ResizeObserver(refit).observe(fit);
+    new ResizeObserver(refit).observe(text);
+    // the arm's canvas covers the post; let clicks through to the post while the cursor is over it
+    window.addEventListener("pointermove", (e) => {
+      const r = fit.getBoundingClientRect();
+      arm.classList.toggle("pass", e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom);
+    }, { passive: true });
+  }
 </script>
 </body>
 </html>

@@ -10,9 +10,9 @@
 // the real holder from the box. The carve plays the generator's real stages (servo pocket →
 // yoke-sweep relief → 7 screw holes), baked by tools/export_editor_scene.py.
 import * as THREE from "./vendor/three.module.min.js";
-import { OrbitControls } from "./vendor/OrbitControls.js?v=68c77e28da";
-import { buildGeometry, loadBundle } from "./arm.js?v=68c77e28da";
-import { EDITOR_HISTORY, editorPaneTemplate, el } from "./template.js?v=68c77e28da";
+import { OrbitControls } from "./vendor/OrbitControls.js?v=bdf89f74e3";
+import { buildGeometry, loadBundle } from "./arm.js?v=bdf89f74e3";
+import { EDITOR_HISTORY, editorPaneTemplate, el } from "./template.js?v=bdf89f74e3";
 
 const BASE_URL = new URL(".", import.meta.url);
 
